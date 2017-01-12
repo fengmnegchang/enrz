@@ -42,6 +42,13 @@
             android:configChanges="keyboard|keyboardHidden|navigation"
             android:description="@string/enrz_webview_desp" >
         </activity>
+         <!-- 首页 -->
+        <activity
+            android:name="com.open.enrz.activity.EnrzLogoDefaultActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_logo_default_desp" >
+        </activity>
+        
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"

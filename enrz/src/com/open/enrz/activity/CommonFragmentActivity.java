@@ -28,7 +28,7 @@ import android.view.View;
  */
 public class CommonFragmentActivity<T> extends BaseFragmentActivity<T> {
 	public static final String TAG = CommonFragmentActivity.class.getSimpleName();
-
+    public String url;
 	/*
 	 * (non-Javadoc)
 	 * 

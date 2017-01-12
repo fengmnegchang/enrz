@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    >
+
+     <TextView
+        android:id="@+id/text_stamptxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="猎奇/ 2016年12月26日"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp" />
+     
+      <TextView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="为什么日本AV开头有美国FBI的警告?"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+         android:layout_below="@+id/text_stamptxt"
+        android:textSize="16sp" />
+     
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="280dp"
+        android:layout_height="200dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:layout_below="@+id/text_title"
+        android:scaleType="fitXY"
+        android:src="@drawable/common_v4" />
+
+    <TextView
+        android:id="@+id/text_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_title"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/imageview"
+        android:text="你在桃谷绘里香和大桥未久间犹豫了一下，最终选择了大桥未久。首先映入眼帘的，是鲜红的“FBI警告” ( FBI Warning …"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/text_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_desc"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/imageview"
+        android:text="了解更多......"
+        android:textSize="14sp" />
+
+     
+
+</RelativeLayout>
