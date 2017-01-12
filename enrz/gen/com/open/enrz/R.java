@@ -465,15 +465,18 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class id {
         public static final int bottom=0x7f0a0004;
-        public static final int imageview=0x7f0a0006;
+        public static final int imageview=0x7f0a0009;
+        public static final int listview=0x7f0a0007;
         public static final int none=0x7f0a0001;
+        public static final int text_name=0x7f0a0008;
         /**  标题栏id 
          */
         public static final int title_bar=0x7f0a0000;
         public static final int top=0x7f0a0005;
         public static final int triangle=0x7f0a0002;
-        public static final int tv_tab_indicator=0x7f0a0007;
+        public static final int tv_tab_indicator=0x7f0a000a;
         public static final int underline=0x7f0a0003;
+        public static final int webview=0x7f0a0006;
     }
     public static final class integer {
         public static final int default_circle_indicator_orientation=0x7f070000;
@@ -483,12 +486,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int default_underline_indicator_fade_length=0x7f070004;
     }
     public static final class layout {
-        public static final int fragment_common_v4=0x7f030000;
-        public static final int tab_view_indicator_item=0x7f030001;
-        public static final int tabhost_title_head=0x7f030002;
+        public static final int activity_app_web=0x7f030000;
+        public static final int activity_enrz_all=0x7f030001;
+        public static final int adapter_all_class=0x7f030002;
+        public static final int fragment_common_v4=0x7f030003;
+        public static final int tab_view_indicator_item=0x7f030004;
+        public static final int tabhost_title_head=0x7f030005;
     }
     public static final class string {
         public static final int app_name=0x7f080000;
+        public static final int enrz_all_desp=0x7f080008;
+        public static final int enrz_webview_desp=0x7f080009;
         public static final int fzlt_cu_hei=0x7f080005;
         public static final int fzlt_zhun_hei=0x7f080004;
         public static final int nav_tab_focus_ttf=0x7f080007;
