@@ -30,7 +30,12 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-
+      <!-- 动态tab -->
+        <activity
+            android:name="com.open.enrz.activity.DynamicMainTabActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_dynamic_main_tab_desp" >
+        </activity>
         <!-- webview -->
         <activity
             android:name="com.open.enrz.activity.EnrzWebViewActivity"
