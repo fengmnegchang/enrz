@@ -18,6 +18,7 @@ import android.support.v4.app.Fragment;
 
 import com.open.enrz.R;
 import com.open.enrz.fragment.LogoThumbnaillPullListViewFragment;
+import com.open.enrz.fragment.SlidePagerFragment;
 import com.open.enrz.utils.UrlUtils;
 
 /**
@@ -63,6 +64,7 @@ public class EnrzLogoDefaultActivity extends CommonFragmentActivity {
 			url = UrlUtils.ENRZ;
 		}
 		Fragment fragment = LogoThumbnaillPullListViewFragment.newInstance(url, true);
+//		Fragment fragment = SlidePagerFragment.newInstance(url, true);
 		getSupportFragmentManager().beginTransaction().replace(R.id.layout_plistview, fragment).commit();
 	}
 

@@ -17,6 +17,7 @@ import java.util.List;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -49,6 +50,7 @@ public class LogoThumbnaillPullListViewFragment extends BaseV4Fragment<Thumbnail
 	public PullToRefreshListView mPullToRefreshListView;
 	public LogoThumbnaillAdapter mLogoThumbnaillAdapter;
 	public List<ThumbnailBean> list = new ArrayList<ThumbnailBean>();
+	public View headview;
 	
 	public static LogoThumbnaillPullListViewFragment newInstance(String url, boolean isVisibleToUser) {
 		LogoThumbnaillPullListViewFragment fragment = new LogoThumbnaillPullListViewFragment();
@@ -61,8 +63,9 @@ public class LogoThumbnaillPullListViewFragment extends BaseV4Fragment<Thumbnail
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		view = inflater.inflate(R.layout.fragment_common_pulllistview, container, false);
+		View view = inflater.inflate(R.layout.fragment_common_pulllistview, container, false);
 		mPullToRefreshListView = (PullToRefreshListView) view.findViewById(R.id.pull_refresh_list);
+		headview = LayoutInflater.from(getActivity()).inflate(R.layout.layout_logo_thumbnaill_headview, null);
 		return view;
 	}
 	
@@ -73,6 +76,12 @@ public class LogoThumbnaillPullListViewFragment extends BaseV4Fragment<Thumbnail
 	public void initValues() {
 		// TODO Auto-generated method stub
 		super.initValues();
+		ListView listview = mPullToRefreshListView.getRefreshableView();
+		listview.addHeaderView(headview);
+		
+		Fragment headfragment = SlidePagerFragment.newInstance(url, true);
+		getChildFragmentManager().beginTransaction().replace(R.id.layout_logo_thumbnaill_head, headfragment).commit();
+		
 		mLogoThumbnaillAdapter = new LogoThumbnaillAdapter(getActivity(),list);
 		mPullToRefreshListView.setAdapter(mLogoThumbnaillAdapter);
 		mPullToRefreshListView.setMode(Mode.BOTH);

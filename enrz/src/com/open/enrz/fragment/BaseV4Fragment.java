@@ -47,7 +47,6 @@ public class BaseV4Fragment<T,F extends BaseV4Fragment> extends Fragment impleme
 	public String mContent = "";
 	public WeakReferenceHandler weakReferenceHandler;
 	private ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
-	public View view;
 	public String url;
 	public boolean isVisibleToUser;
 	public int pageNo = 1;
