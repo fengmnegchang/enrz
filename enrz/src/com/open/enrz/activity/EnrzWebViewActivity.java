@@ -11,13 +11,16 @@
  */
 package com.open.enrz.activity;
 
+import android.app.AlertDialog;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebSettings.LayoutAlgorithm;
@@ -25,6 +28,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.open.enrz.R;
+import com.open.enrz.utils.DownLoadAsyncTask;
+import com.open.enrz.utils.ImageAsyncTask;
 import com.open.enrz.utils.UrlUtils;
 
 /**
@@ -66,6 +71,37 @@ public class EnrzWebViewActivity extends CommonFragmentActivity {
 	protected void findView() {
 		// TODO Auto-generated method stub
 		webview = (WebView) findViewById(R.id.webview);
+	}
+	/* (non-Javadoc)
+	 * @see com.open.enrz.activity.CommonFragmentActivity#bindEvent()
+	 */
+	@Override
+	protected void bindEvent() {
+		// TODO Auto-generated method stub
+		super.bindEvent();
+		webview.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+            	WebView.HitTestResult result = ((WebView) v).getHitTestResult();
+            	int type = result.getType();
+            	switch (type) {
+				case WebView.HitTestResult.IMAGE_TYPE:
+					final String imgurl = result.getExtra();
+					AlertDialog.Builder builder = new AlertDialog.Builder(EnrzWebViewActivity.this);  
+		               builder.setItems(new String[]{EnrzWebViewActivity.this.getResources().getString(R.string.save_picture)}, new DialogInterface.OnClickListener() {  
+		                   @Override  
+		                   public void onClick(DialogInterface dialog, int which) {  
+		                       new DownLoadAsyncTask(EnrzWebViewActivity.this,imgurl).execute();  
+		                   }  
+		               });  
+		               builder.show();  
+					break;
+				default:
+					break;
+				}
+				return false;
+                }
+            });
 	}
 
 	/*
