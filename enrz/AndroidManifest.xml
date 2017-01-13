@@ -34,7 +34,9 @@
         <activity
             android:name="com.open.enrz.activity.DynamicMainTabActivity"
             android:configChanges="keyboard|keyboardHidden|navigation"
-            android:description="@string/enrz_dynamic_main_tab_desp" >
+            android:description="@string/enrz_dynamic_main_tab_desp"
+            android:theme="@style/Theme.PageIndicatorDefaults" 
+             >
         </activity>
         <!-- webview -->
         <activity
@@ -61,6 +63,12 @@
             android:name="com.open.enrz.activity.GnSubPullListFragmentActivity"
             android:configChanges="keyboard|keyboardHidden|navigation"
             android:description="@string/enrz_gn_sub_listview_desp" >
+        </activity>
+         <!-- 详细scroll-->
+        <activity
+            android:name="com.open.enrz.activity.ContboxScrollFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_contbox_scroll_desp" >
         </activity>
         <!-- 所有类列表 -->
         <activity

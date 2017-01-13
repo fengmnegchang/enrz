@@ -32,7 +32,10 @@ public class UrlUtils {
 	//网页
 	/***pc地址**/
 	public static final String ENRZ = "http://enrz.com/";
+	/***尤物tab**/
 	public static final String ENRZ_BEAUTY= "http://enrz.com/beauty";
+	/***内容详细**/
+	public static final String ENRZ_CONTBOX= "http://enrz.com/fhm/2017/01/09/76999.html";
 	 
 	
 	public static String getCookie(){

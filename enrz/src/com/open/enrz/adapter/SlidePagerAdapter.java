@@ -61,7 +61,6 @@ public class SlidePagerAdapter extends CommonPagerAdapter<SlideBean> {
 				@Override
 				public void onClick(View v) {
 					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, bean.getHref());
-					
 				}
 			});
 		}
