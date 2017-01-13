@@ -14,4 +14,6 @@
     <string name="enrz_webview_desp">webview </string>
     <string name="enrz_dynamic_main_tab_desp"> 动态tab </string>
     <string name="enrz_logo_default_desp">首页</string>
+     <string name="enrz_gn_sub_indicator_desp">子tab页面</string>
+     <string name="enrz_gn_sub_listview_desp">子列表</string>
 </resources>

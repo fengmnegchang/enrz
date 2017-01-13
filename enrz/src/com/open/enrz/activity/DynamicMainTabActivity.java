@@ -78,10 +78,27 @@ public class DynamicMainTabActivity extends CommonTabActivity<GlobalNavJson> {
 	public void onCallback(GlobalNavJson result) {
 		// TODO Auto-generated method stub
 		super.onCallback(result);
+		Intent intent;
 		for(int i=0;i<result.getList().size();i++){
 			GlobalNavBean mbean = result.getList().get(i);
 			TabSpec tab_main = mTabHost.newTabSpec(mbean.getTarget());
-			tab_main.setContent(new Intent(this, EnrzWebViewActivity.class)).setIndicator(mbean.getTarget());
+			
+			if(mbean.getTarget().equals("首页")){
+				tab_main.setContent(new Intent(this, EnrzLogoDefaultActivity.class)).setIndicator(mbean.getTarget());
+			}else if(mbean.getTarget().equals("美图")){
+				intent = new Intent(this, EnrzWebViewActivity.class);
+				intent.putExtra("URL", mbean.getHref());
+				tab_main.setContent(intent).setIndicator(mbean.getTarget());
+			}else if(mbean.getTarget().equals("商城")){
+				intent = new Intent(this, EnrzWebViewActivity.class);
+				intent.putExtra("URL", mbean.getHref());
+				tab_main.setContent(intent).setIndicator(mbean.getTarget());
+			}else{
+				intent = new Intent(this, GnSubIndicatorFragmentActivity.class);
+				intent.putExtra("URL", mbean.getHref());
+				intent.putExtra("TITLE", mbean.getTarget());
+				tab_main.setContent(intent).setIndicator(mbean.getTarget());
+			}
 			mTabHost.addTab(tab_main);
 			
 			View viewRadio = LayoutInflater.from(this).inflate(R.layout.layout_tab_main_dynamic_radio, null);

@@ -81,11 +81,30 @@ public class DynamicMainService extends CommonService {
 						try {
 							//<li><a target="_blank" href="http://shop.enrz.com/">商城</a></li>
 							if(i==moduleElements.size()-1){
+								Element liElement;
+								try {
+									gbean = new GlobalNavBean();
+								    liElement = moduleElements.get(i).parent().previousElementSibling();
+									if (liElement != null) {
+										// <li class="cur active"><a target="_blank" href="http://enrz.com/special">专题</a></li>
+										String titlea = liElement.select("a").first().text();
+										String hrefa = liElement.select("a").first().attr("href");
+										Log.i(TAG, ";titlea==" + titlea + ";hrefa==" + hrefa);
+										gbean.setHref(hrefa);
+										gbean.setTarget(titlea);
+										if (titlea.equals("专题")) {
+											list.add(gbean);
+										}
+									}
+								} catch (Exception e) {
+									e.printStackTrace();
+								}
+								
 								gbean = new GlobalNavBean();
-								Element liElement = moduleElements.get(i).parent().nextElementSibling();
+								liElement = moduleElements.get(i).parent().nextElementSibling();
 								if (liElement != null) {
-									String titlea = liElement.text();
-									String hrefa = liElement.attr("href");
+									String titlea = liElement.select("a").first().text();
+									String hrefa = liElement.select("a").first().attr("href");
 									Log.i(TAG, ";titlea==" + titlea + ";hrefa==" + hrefa);
 									gbean.setHref(hrefa);
 									gbean.setTarget(titlea);
@@ -93,6 +112,7 @@ public class DynamicMainService extends CommonService {
 										list.add(gbean);
 									}
 								}
+								
 							}
 							
 						} catch (Exception e) {
@@ -100,13 +120,12 @@ public class DynamicMainService extends CommonService {
 						}
 					}
 				}
-				
-				
-				
 
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

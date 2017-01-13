@@ -50,7 +50,7 @@ public class BaseV4Fragment<T,F extends BaseV4Fragment> extends Fragment impleme
 	public String url;
 	public boolean isVisibleToUser;
 	public int pageNo = 1;
-	
+	public String title;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

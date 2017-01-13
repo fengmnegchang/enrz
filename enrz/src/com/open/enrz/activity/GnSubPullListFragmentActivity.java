@@ -17,12 +17,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.open.enrz.R;
-import com.open.enrz.fragment.LogoThumbnaillPullListViewFragment;
+import com.open.enrz.fragment.GnSubPullListViewFragment;
 import com.open.enrz.utils.UrlUtils;
 
 /**
  ***************************************************************************************************************************************************************************** 
- * 首页
+ *  子列表
  * 
  * @author :fengguangjing
  * @createTime:2017-1-12下午4:52:46
@@ -32,7 +32,7 @@ import com.open.enrz.utils.UrlUtils;
  * @description:
  ***************************************************************************************************************************************************************************** 
  */
-public class EnrzLogoDefaultActivity extends CommonFragmentActivity {
+public class GnSubPullListFragmentActivity extends CommonFragmentActivity {
 
 	/*
 	 * (non-Javadoc)
@@ -44,7 +44,7 @@ public class EnrzLogoDefaultActivity extends CommonFragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_enrz_logo_default);
+		setContentView(R.layout.activity_common_pulllistview);
 		init();
 	}
 
@@ -60,17 +60,16 @@ public class EnrzLogoDefaultActivity extends CommonFragmentActivity {
 		if (getIntent().getStringExtra("URL") != null) {
 			url = getIntent().getStringExtra("URL");
 		} else {
-			url = UrlUtils.ENRZ;
+			url = UrlUtils.ENRZ_BEAUTY;
 		}
-		Fragment fragment = LogoThumbnaillPullListViewFragment.newInstance(url, true);
-//		Fragment fragment = SlidePagerFragment.newInstance(url, true);
+		Fragment fragment = GnSubPullListViewFragment.newInstance(url, true);
 		getSupportFragmentManager().beginTransaction().replace(R.id.layout_plistview, fragment).commit();
 	}
 
-	public static void startEnrzLogoDefaultActivity(Context context, String url) {
+	public static void startGnSubPullListFragmentActivity(Context context, String url) {
 		Intent intent = new Intent();
 		intent.putExtra("URL", url);
-		intent.setClass(context, EnrzLogoDefaultActivity.class);
+		intent.setClass(context, GnSubPullListFragmentActivity.class);
 		context.startActivity(intent);
 	}
 }

@@ -11,6 +11,9 @@
  */
 package com.open.enrz.view;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -26,9 +29,6 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  ***************************************************************************************************************************************************************************** 

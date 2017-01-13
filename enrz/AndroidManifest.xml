@@ -48,7 +48,20 @@
             android:configChanges="keyboard|keyboardHidden|navigation"
             android:description="@string/enrz_logo_default_desp" >
         </activity>
-        
+        <!-- 子tab页面 -->
+        <activity
+            android:name="com.open.enrz.activity.GnSubIndicatorFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_gn_sub_indicator_desp" 
+            android:theme="@style/Theme.PageIndicatorDefaults" 
+			>
+        </activity>
+         <!-- 子列表listview-->
+        <activity
+            android:name="com.open.enrz.activity.GnSubPullListFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_gn_sub_listview_desp" >
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"
