@@ -15,6 +15,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.enrz.R;
+import com.open.enrz.activity.EnrzWebViewActivity;
 import com.open.enrz.bean.ThumbnailBean;
 
 /**
@@ -67,6 +69,13 @@ public class LogoThumbnaillAdapter extends CommonAdapter<ThumbnailBean>{
 						.cacheInMemory().cacheOnDisc().build();
 				ImageLoader.getInstance().displayImage(bean.getPicsrc(), viewHolder.imageview, options, getImageLoadingListener());
 			}
+			convertView.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, bean.getHref());
+					
+				}
+			});
 		}
 		return convertView;
 	}

@@ -17,12 +17,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.enrz.R;
+import com.open.enrz.activity.EnrzWebViewActivity;
 import com.open.enrz.bean.SlideBean;
 
 /**
@@ -55,6 +57,13 @@ public class SlidePagerAdapter extends CommonPagerAdapter<SlideBean> {
 				ImageLoader.getInstance().displayImage(bean.getSrc(), mViewHolder.imageview, options, null);
 			}
 			mViewHolder.txt_st_ty.setText(bean.getSt_ty());
+			convertView.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, bean.getHref());
+					
+				}
+			});
 		}
 		container.addView(convertView);
 		return convertView;
