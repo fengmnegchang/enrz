@@ -51,7 +51,7 @@ public class LogoThumbnaillPullListViewFragment extends BaseV4Fragment<Thumbnail
 	public LogoThumbnaillAdapter mLogoThumbnaillAdapter;
 	public List<ThumbnailBean> list = new ArrayList<ThumbnailBean>();
 	public View headview;
-	
+	public View footview;
 	public static LogoThumbnaillPullListViewFragment newInstance(String url, boolean isVisibleToUser) {
 		LogoThumbnaillPullListViewFragment fragment = new LogoThumbnaillPullListViewFragment();
 		fragment.setFragment(fragment);
@@ -66,6 +66,7 @@ public class LogoThumbnaillPullListViewFragment extends BaseV4Fragment<Thumbnail
 		View view = inflater.inflate(R.layout.fragment_common_pulllistview, container, false);
 		mPullToRefreshListView = (PullToRefreshListView) view.findViewById(R.id.pull_refresh_list);
 		headview = LayoutInflater.from(getActivity()).inflate(R.layout.layout_logo_thumbnaill_headview, null);
+		footview = LayoutInflater.from(getActivity()).inflate(R.layout.layout_logo_thumbnaill_footview, null);
 		return view;
 	}
 	
@@ -78,9 +79,13 @@ public class LogoThumbnaillPullListViewFragment extends BaseV4Fragment<Thumbnail
 		super.initValues();
 		ListView listview = mPullToRefreshListView.getRefreshableView();
 		listview.addHeaderView(headview);
+		listview.addFooterView(footview);
 		
 		Fragment headfragment = SlidePagerFragment.newInstance(url, true);
 		getChildFragmentManager().beginTransaction().replace(R.id.layout_logo_thumbnaill_head, headfragment).commit();
+		
+		Fragment footfragment = SlideFootPagerFragment.newInstance(url, true);
+		getChildFragmentManager().beginTransaction().replace(R.id.layout_logo_thumbnaill_foot, footfragment).commit();
 		
 		mLogoThumbnaillAdapter = new LogoThumbnaillAdapter(getActivity(),list);
 		mPullToRefreshListView.setAdapter(mLogoThumbnaillAdapter);
