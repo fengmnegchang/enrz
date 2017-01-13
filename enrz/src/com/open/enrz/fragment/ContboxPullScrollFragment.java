@@ -40,6 +40,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
 import com.open.enrz.R;
+import com.open.enrz.activity.HtmlImgPreviewActivity;
 import com.open.enrz.bean.ContboxBean;
 import com.open.enrz.html.URLImageParser;
 import com.open.enrz.json.ContboxJson;
@@ -113,7 +114,7 @@ public class ContboxPullScrollFragment extends BaseV4Fragment<ContboxJson, Contb
 					}
 				}
 				Log.e("jj", "position>>" + position);
-				Intent intent = new Intent(getActivity(), ImgPreviewActivity.class);
+				Intent intent = new Intent(getActivity(), HtmlImgPreviewActivity.class);
 				Bundle b = new Bundle();
 				b.putInt("position", position);
 				b.putStringArrayList("imglist", imglist);

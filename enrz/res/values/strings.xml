@@ -19,4 +19,5 @@
      <string name="enrz_contbox_scroll_desp">详细scroll</string>
      <string name="enrz_html_spanner_main_desp">主测试页面图片预览</string>
      <string name="enrz_html_spanner_viewpager_desp">图片预览</string>
+     <string name="enrz_html_spanner_viewpager_html_desp">html图片预览</string>
 </resources>
