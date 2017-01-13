@@ -11,11 +11,24 @@
  */
 package com.open.enrz.fragment;
 
+import java.util.ArrayList;
+
+import net.nightwhistler.htmlspanner.HtmlSpanner;
+import net.nightwhistler.htmlspanner.ImgPreviewActivity;
+import net.nightwhistler.htmlspanner.LinkMovementMethodExt;
+import net.nightwhistler.htmlspanner.MainActivity;
+import net.nightwhistler.htmlspanner.MyImageSpan;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.text.Html;
+import android.text.Spannable;
 import android.text.format.DateUtils;
+import android.text.style.ImageSpan;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +59,9 @@ import com.open.enrz.jsoup.ContBoxScrollService;
 public class ContboxPullScrollFragment extends BaseV4Fragment<ContboxJson, ContboxPullScrollFragment> implements OnRefreshListener<ScrollView> {
 	PullToRefreshScrollView mPullToRefreshScrollView;
 	TextView  txt_centerp;
+	HtmlSpanner htmlSpanner;
+	ArrayList<String> imglist;
+	
 	public static ContboxPullScrollFragment newInstance(String url, boolean isVisibleToUser) {
 		ContboxPullScrollFragment fragment = new ContboxPullScrollFragment();
 		fragment.setFragment(fragment);
@@ -73,8 +89,42 @@ public class ContboxPullScrollFragment extends BaseV4Fragment<ContboxJson, Contb
 		// TODO Auto-generated method stub
 		super.initValues();
 		mPullToRefreshScrollView.setMode(Mode.PULL_FROM_START);
+		DisplayMetrics dm = new DisplayMetrics();
+		getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+		imglist = new ArrayList<String>();
+		htmlSpanner = new HtmlSpanner(getActivity(), dm.widthPixels, handler);
 	}
 
+	final Handler handler = new Handler() {
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case 1:// 获取图片路径列表
+				String url = (String) msg.obj;
+				Log.e("jj", "url>>" + url);
+				imglist.add(url);
+				break;
+			case 2:// 图片点击事件
+				int position = 0;
+				MyImageSpan span = (MyImageSpan) msg.obj;
+				for (int i = 0; i < imglist.size(); i++) {
+					if (span.getUrl().equals(imglist.get(i))) {
+						position = i;
+						break;
+					}
+				}
+				Log.e("jj", "position>>" + position);
+				Intent intent = new Intent(getActivity(), ImgPreviewActivity.class);
+				Bundle b = new Bundle();
+				b.putInt("position", position);
+				b.putStringArrayList("imglist", imglist);
+				intent.putExtra("b", b);
+				startActivity(intent);
+				break;
+			}
+		}
+
+	};
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -105,9 +155,22 @@ public class ContboxPullScrollFragment extends BaseV4Fragment<ContboxJson, Contb
 	public void onCallback(ContboxJson result) {
 		// TODO Auto-generated method stub
 		super.onCallback(result);
-		ContboxBean  contbox = result.getContbox();
+		final ContboxBean  contbox = result.getContbox();
 		if(contbox!=null){
-			txt_centerp.setText(Html.fromHtml(contbox.getCenterp(), new URLImageParser(txt_centerp), null));  
+			new Thread(new Runnable() {
+				@Override
+				public void run() {
+					final Spannable spannable = htmlSpanner.fromHtml(contbox.getCenterp());
+					getActivity().runOnUiThread(new Runnable() {
+						@Override
+						public void run() {
+							txt_centerp.setText(spannable);
+							txt_centerp.setMovementMethod(LinkMovementMethodExt.getInstance(handler, ImageSpan.class));
+						}
+					});
+				}
+			}).start();
+//			txt_centerp.setText(Html.fromHtml(contbox.getCenterp(), new URLImageParser(txt_centerp), null));  
 		}
 		mPullToRefreshScrollView.onRefreshComplete();
 	}
