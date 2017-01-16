@@ -34,7 +34,6 @@
         android:layout_toRightOf="@+id/imageview"
         android:background="#ffffee"
         android:padding="5dp" 
-        android:visibility="gone"
         >
 
         <ImageView
@@ -64,6 +63,7 @@
             android:layout_below="@+id/text_authorc"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
             android:layout_toRightOf="@+id/imageviewc"
             android:text="OMG 大幂幂　"
             android:textSize="14sp" />
@@ -72,10 +72,10 @@
             android:id="@+id/text_replayc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text_authorc"
+            android:layout_below="@+id/text_contentc"
             android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/imageviewc"
             android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/text_contentc"
             android:text="回复"
             android:textSize="14sp" />
 
@@ -83,7 +83,7 @@
             android:id="@+id/text_upc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text_authorc"
+            android:layout_below="@+id/text_contentc"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/text_replayc"
@@ -94,7 +94,7 @@
             android:id="@+id/text_repeatc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text_authorc"
+            android:layout_below="@+id/text_contentc"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/text_upc"
@@ -128,44 +128,48 @@
         android:id="@+id/text_replay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_content"
+        android:layout_below="@+id/text_datetime"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/text_datetime"
+        android:layout_toRightOf="@+id/imageview"
         android:text="回复"
+        android:layout_marginBottom="10dp"
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/text_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_content"
+        android:layout_below="@+id/text_datetime"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/text_replay"
         android:text="顶"
+        android:layout_marginBottom="10dp"
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/text_repeat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_content"
+        android:layout_below="@+id/text_datetime"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/text_up"
         android:text="转发"
+        android:layout_marginBottom="10dp"
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/text_report"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_content"
+        android:layout_below="@+id/text_datetime"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/text_repeat"
         android:text="举报"
+        android:layout_marginBottom="10dp"
         android:textSize="14sp" />
 
 </RelativeLayout>

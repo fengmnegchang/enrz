@@ -15,12 +15,14 @@ import java.util.List;
 
 import android.content.Context;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.open.enrz.R;
+import com.open.enrz.activity.EnrzWebViewActivity;
 import com.open.enrz.bean.CommentBean;
 
 /**
@@ -45,7 +47,7 @@ public class CommentAdapter extends CommonAdapter<CommentBean> {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
-		ViewHolder mViewHolder;
+		final ViewHolder mViewHolder;
 		if(convertView==null ){
 			convertView = mInflater.inflate(R.layout.adapter_comment, null);
 			mViewHolder = new ViewHolder();
@@ -74,19 +76,40 @@ public class CommentAdapter extends CommonAdapter<CommentBean> {
 			if(bean.getChildren()!=null){
 				mViewHolder.layout_children.setVisibility(View.VISIBLE);
 				mViewHolder.text_authorc.setText(bean.getAuthor()+bean.getDatetime());
+				mViewHolder.text_authorc.setTag(bean.getAuthorhref());
 				mViewHolder.text_contentc.setText(bean.getContent());
 				
 				mViewHolder.text_author.setText(bean.getChildren().getAuthor());
+				mViewHolder.text_author.setTag(bean.getChildren().getAuthorhref());
+				
 				mViewHolder.text_content.setText(bean.getChildren().getContent());
 				mViewHolder.text_datetime.setText(bean.getChildren().getDatetime());
 				
 			}else{
 				mViewHolder.layout_children.setVisibility(View.GONE);
 				mViewHolder.text_author.setText(bean.getAuthor());
+				mViewHolder.text_author.setTag(bean.getAuthorhref());
+				
 				mViewHolder.text_content.setText(bean.getContent());
 				mViewHolder.text_datetime.setText(bean.getDatetime());
 			}
 		}
+		mViewHolder.text_author.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(mViewHolder.text_author.getTag()!=null && mViewHolder.text_author.getTag().toString().length()>0){
+					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, mViewHolder.text_author.getTag().toString());
+				}
+			}
+		});
+		mViewHolder.text_authorc.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(mViewHolder.text_authorc.getTag()!=null &&mViewHolder.text_authorc.getTag().toString().length()>0){
+					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, mViewHolder.text_authorc.getTag().toString());
+				}
+			}
+		});
 		return convertView; 
 	}
 	
