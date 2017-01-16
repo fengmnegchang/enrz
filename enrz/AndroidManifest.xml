@@ -86,6 +86,10 @@
         <activity android:name="com.open.enrz.activity.EnrzImageViewPagerActivity"
             android:description="@string/enrz_image_viewpager_desp"
             />
+         <!--图库 fragment viewpager-->
+        <activity android:name="com.open.enrz.activity.EnrzImageViewPagerFragmentActivity"
+            android:description="@string/enrz_image_viewpager_fragment_desp"
+            />
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"
