@@ -32,6 +32,8 @@ public class SlideBean extends CommonBean{
 	private String href;
 	private String src;
 	private String st_ty;
+	private String view_intro;
+	
 	public String getHref() {
 		return href;
 	}
@@ -49,6 +51,12 @@ public class SlideBean extends CommonBean{
 	}
 	public void setSt_ty(String st_ty) {
 		this.st_ty = st_ty;
+	}
+	public String getView_intro() {
+		return view_intro;
+	}
+	public void setView_intro(String view_intro) {
+		this.view_intro = view_intro;
 	}
 
 }

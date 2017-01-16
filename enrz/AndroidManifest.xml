@@ -82,6 +82,10 @@
         <activity android:name="com.open.enrz.activity.HtmlImgPreviewActivity"
             android:description="@string/enrz_html_spanner_viewpager_html_desp"
             />
+         <!--图库viewpager-->
+        <activity android:name="com.open.enrz.activity.EnrzImageViewPagerActivity"
+            android:description="@string/enrz_image_viewpager_desp"
+            />
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"
