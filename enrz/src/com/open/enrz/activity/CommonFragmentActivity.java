@@ -30,6 +30,7 @@ public class CommonFragmentActivity<T> extends BaseFragmentActivity<T> {
 	public static final String TAG = CommonFragmentActivity.class.getSimpleName();
     public String url;
     public String title;
+    public int pageNo;
 	/*
 	 * (non-Javadoc)
 	 * 

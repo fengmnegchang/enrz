@@ -40,6 +40,10 @@ public class UrlUtils {
 	public static final String ENRZ_IMAGE_VIEW_PAGER= "http://pic.enrz.com/2016/1014/196602.shtml";
 	/***24 小时热榜**/
 	public static final String ENRZ_HOUR_HOT = "http://enrz.com/api/get24HoursPosts/";
+	/***搜索**/
+	public static final String ENRZ_SEARCH = "http://enrz.com/index.php?s=";
+	/***搜索分页**/
+	public static final String ENRZ_SEARCH_PAGENO = "http://enrz.com/page/";
 	
 	public static String getCookie(){
 		return COOKIE;
