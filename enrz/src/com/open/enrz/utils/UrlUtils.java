@@ -38,6 +38,8 @@ public class UrlUtils {
 	public static final String ENRZ_CONTBOX= "http://enrz.com/fhm/2017/01/09/76999.html";
 	/***图库viewpager**/
 	public static final String ENRZ_IMAGE_VIEW_PAGER= "http://pic.enrz.com/2016/1014/196602.shtml";
+	/***24 小时热榜**/
+	public static final String ENRZ_HOUR_HOT = "http://enrz.com/api/get24HoursPosts/";
 	
 	public static String getCookie(){
 		return COOKIE;

@@ -90,6 +90,10 @@
         <activity android:name="com.open.enrz.activity.EnrzImageViewPagerFragmentActivity"
             android:description="@string/enrz_image_viewpager_fragment_desp"
             />
+        <!--24 小时热榜-->
+        <activity android:name="com.open.enrz.activity.Enrz24HoursPostsActivity"
+            android:description="@string/enrz_hour_hot_fragment_desp"
+            />
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"
