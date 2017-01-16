@@ -102,6 +102,10 @@
         <activity android:name="com.open.enrz.activity.EnrzRaletionPostsActivity"
             android:description="@string/enrz_raletion_fragment_desp"
             />
+        <!--评论-->
+        <activity android:name="com.open.enrz.activity.EnrzCommentActivity"
+            android:description="@string/enrz_comment_fragment_desp"
+            />
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"
