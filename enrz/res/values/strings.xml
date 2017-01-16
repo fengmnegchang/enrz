@@ -26,4 +26,5 @@
      <string name="enrz_search_desp">搜索</string>
      <string name="enrz_raletion_fragment_desp">其他相关推荐</string>
      <string name="enrz_comment_fragment_desp">评论</string>
+     <string name="enrz_pic_indicator_desp">美图tab页面</string>
 </resources>
