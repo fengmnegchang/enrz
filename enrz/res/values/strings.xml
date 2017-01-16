@@ -24,4 +24,5 @@
      <string name="enrz_image_viewpager_fragment_desp">图库fragment viewpager</string>
      <string name="enrz_hour_hot_fragment_desp">24 小时热榜</string>
      <string name="enrz_search_desp">搜索</string>
+     <string name="enrz_raletion_fragment_desp">其他相关推荐</string>
 </resources>

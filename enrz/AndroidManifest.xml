@@ -98,6 +98,10 @@
         <activity android:name="com.open.enrz.activity.SearchActivity"
             android:description="@string/enrz_search_desp"
             />
+        <!--其他相关推荐-->
+        <activity android:name="com.open.enrz.activity.EnrzRaletionPostsActivity"
+            android:description="@string/enrz_raletion_fragment_desp"
+            />
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"

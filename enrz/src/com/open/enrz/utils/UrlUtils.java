@@ -44,6 +44,9 @@ public class UrlUtils {
 	public static final String ENRZ_SEARCH = "http://enrz.com/index.php?s=";
 	/***搜索分页**/
 	public static final String ENRZ_SEARCH_PAGENO = "http://enrz.com/page/";
+	/***其他相关推荐**/
+	public static final String ENRZ_RALETION = "http://enrz.com/api/getRaletionPosts/?post_id=2773";
+	
 	
 	public static String getCookie(){
 		return COOKIE;
