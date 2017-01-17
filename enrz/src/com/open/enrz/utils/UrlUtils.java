@@ -48,6 +48,8 @@ public class UrlUtils {
 	public static final String ENRZ_RALETION = "http://enrz.com/api/getRaletionPosts/?post_id=2773";
 	/***评论**/
 	public static final String ENRZ_COMMENT = "http://enrz.com/fhm/2015/05/21/2773.html";
+	/***美女列表**/
+	public static final String ENRZ_MISS = "http://pic.enrz.com/miss/";
 	
 	public static String getCookie(){
 		return COOKIE;

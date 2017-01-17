@@ -114,6 +114,21 @@
             android:theme="@style/Theme.PageIndicatorDefaults" 
 			>
         </activity>
+        <!-- 美女grid列表-->
+        <activity
+            android:name="com.open.enrz.activity.PicPullGridFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_pic_grid_desp" 
+			>
+        </activity>
+        <!-- 美女nav-->
+        <activity
+            android:name="com.open.enrz.activity.PicIndicatorSubNavFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_pic_nav_desp" 
+            android:theme="@style/Theme.PageIndicatorDefaults" 
+			>
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"

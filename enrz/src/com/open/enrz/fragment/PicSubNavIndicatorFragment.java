@@ -15,10 +15,11 @@ import android.support.v4.app.Fragment;
 
 import com.open.enrz.bean.GnSubBean;
 import com.open.enrz.json.GnSubJson;
+import com.open.enrz.jsoup.GnSubService;
 
 /**
  ***************************************************************************************************************************************************************************** 
- * 美图tab
+ * 美图nav
  * 
  * @author :fengguangjing
  * @createTime:2017-1-13上午11:03:26
@@ -28,17 +29,25 @@ import com.open.enrz.json.GnSubJson;
  * @description:
  ***************************************************************************************************************************************************************************** 
  */
-public class PicIndicatorFragment extends GnSubIndicatorFragment {
+public class PicSubNavIndicatorFragment extends GnSubIndicatorFragment {
 
-	public static PicIndicatorFragment newInstance(String title, String url, boolean isVisibleToUser) {
-		PicIndicatorFragment fragment = new PicIndicatorFragment();
+	public static PicSubNavIndicatorFragment newInstance(String title, String url, boolean isVisibleToUser) {
+		PicSubNavIndicatorFragment fragment = new PicSubNavIndicatorFragment();
 		fragment.setFragment(fragment);
 		fragment.setUserVisibleHint(isVisibleToUser);
-		fragment.title = title;
 		fragment.url = url;
+		fragment.title = title;
 		return fragment;
 	}
-
+	
+	@Override
+	public GnSubJson call() throws Exception {
+		// TODO Auto-generated method stub
+		GnSubJson mGnSubJson = new GnSubJson();
+		mGnSubJson.setList(GnSubService.parseNav(title,url));
+		return mGnSubJson;
+	}
+	
 	@Override
 	public void onCallback(GnSubJson result) {
 		// TODO Auto-generated method stub
@@ -50,9 +59,9 @@ public class PicIndicatorFragment extends GnSubIndicatorFragment {
 		for (GnSubBean bean : result.getList()) {
 			titleList.add(bean.getTarget());
 			if (title.equals(bean.getTarget())) {
-				fragment = GnSubPullListViewFragment.newInstance(bean.getHref(), true);
+				fragment = PicPullGridFragment.newInstance(bean.getHref(), true);
 			} else {
-				fragment = PicSubNavIndicatorFragment.newInstance(bean.getTarget(),bean.getHref(), false);
+				fragment = PicPullGridFragment.newInstance(bean.getHref(), false);
 			}
 			listRankFragment.add(fragment);
 		}
