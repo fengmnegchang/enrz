@@ -37,10 +37,10 @@ import com.open.enrz.jsoup.GnSubPullListService;
  * @description:
  ***************************************************************************************************************************************************************************** 
  */
-public class DetailThumbPullListViewFragment extends LogoThumbnaillPullListViewFragment{
+public class DetailThumbPullListViewGalleryFragment extends LogoThumbnaillPullListViewFragment{
 	
-	public static DetailThumbPullListViewFragment newInstance(String url, boolean isVisibleToUser) {
-		DetailThumbPullListViewFragment fragment = new DetailThumbPullListViewFragment();
+	public static DetailThumbPullListViewGalleryFragment newInstance(String url, boolean isVisibleToUser) {
+		DetailThumbPullListViewGalleryFragment fragment = new DetailThumbPullListViewGalleryFragment();
 		fragment.setFragment(fragment);
 		fragment.setUserVisibleHint(isVisibleToUser);
 		fragment.url = url;
@@ -66,7 +66,7 @@ public class DetailThumbPullListViewFragment extends LogoThumbnaillPullListViewF
 		listview.addHeaderView(headview);
 		listview.addFooterView(footview);
 		
-		Fragment headfragment = EnrzImageViewPagerFragment.newInstance(url, true,0);
+		Fragment headfragment = PicGalleryFragment.newInstance(url, true);
 		getChildFragmentManager().beginTransaction().replace(R.id.layout_detail_thumbnaill_head, headfragment).commit();
 		
 		Fragment footfragment = DetailThumbExpendListFragment.newInstance(url, true);

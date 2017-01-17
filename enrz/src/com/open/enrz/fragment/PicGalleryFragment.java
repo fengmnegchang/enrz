@@ -31,6 +31,7 @@ import android.widget.TextView;
 import android.widget.ViewSwitcher.ViewFactory;
 
 import com.open.enrz.R;
+import com.open.enrz.activity.DetailThumbPullListGalleryFragmentActivity;
 import com.open.enrz.activity.EnrzImageViewPagerFragmentActivity;
 import com.open.enrz.activity.PicGalleryFragmentActivity;
 import com.open.enrz.adapter.PicGalleryAdapter;
@@ -210,10 +211,10 @@ public class PicGalleryFragment extends BaseV4Fragment<SlideJson, PicGalleryFrag
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_pre:
-			PicGalleryFragmentActivity.startPicGalleryFragmentActivity(getActivity(), btn_pre.getTag().toString());
+			DetailThumbPullListGalleryFragmentActivity.startDetailThumbPullListGalleryFragmentActivity(getActivity(), btn_pre.getTag().toString());
 			break;
 		case R.id.btn_next:
-			PicGalleryFragmentActivity.startPicGalleryFragmentActivity(getActivity(), btn_next.getTag().toString());
+			DetailThumbPullListGalleryFragmentActivity.startDetailThumbPullListGalleryFragmentActivity(getActivity(), btn_next.getTag().toString());
 			break;
 		case R.id.img_next:
 			if(currentposition>=list.size()-1){

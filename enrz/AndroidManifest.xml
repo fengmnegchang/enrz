@@ -150,6 +150,13 @@
             android:description="@string/enrz_pic_gallery_desp" 
 			>
         </activity>
+         <!-- 看图详细gallery-->
+        <activity
+            android:name="com.open.enrz.activity.DetailThumbPullListGalleryFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_detail_thumb_gallery_desp" 
+			>
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"
