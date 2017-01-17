@@ -52,6 +52,7 @@ public class DetailThumbPullListViewFragment extends LogoThumbnaillPullListViewF
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_common_pulllistview, container, false);
 		mPullToRefreshListView = (PullToRefreshListView) view.findViewById(R.id.pull_refresh_list);
+		headview = LayoutInflater.from(getActivity()).inflate(R.layout.layout_detail_thumbnaill_headview, null);
 		footview = LayoutInflater.from(getActivity()).inflate(R.layout.layout_detail_thumbnaill_footview, null);
 		return view;
 	}
@@ -62,7 +63,11 @@ public class DetailThumbPullListViewFragment extends LogoThumbnaillPullListViewF
 	@Override
 	public void initValues() {
 		ListView listview = mPullToRefreshListView.getRefreshableView();
+		listview.addHeaderView(headview);
 		listview.addFooterView(footview);
+		
+		Fragment headfragment = EnrzImageViewPagerFragment.newInstance(url, true);
+		getChildFragmentManager().beginTransaction().replace(R.id.layout_logo_thumbnaill_head, headfragment).commit();
 		
 		Fragment footfragment = DetailThumbExpendListFragment.newInstance(url, true);
 		getChildFragmentManager().beginTransaction().replace(R.id.layout_detail_thumbnaill_foot, footfragment).commit();
