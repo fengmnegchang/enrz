@@ -11,6 +11,9 @@
  */
 package com.open.enrz.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *****************************************************************************************************************************************************************************
  * 
@@ -25,6 +28,8 @@ package com.open.enrz.bean;
 public class GnSubBean extends CommonBean{
 	private String target;
 	private String href;
+	private List<PicBean> clist = new ArrayList<PicBean>();
+	
 	public String getTarget() {
 		return target;
 	}
@@ -36,6 +41,12 @@ public class GnSubBean extends CommonBean{
 	}
 	public void setHref(String href) {
 		this.href = href;
+	}
+	public List<PicBean> getClist() {
+		return clist;
+	}
+	public void setClist(List<PicBean> clist) {
+		this.clist = clist;
 	}
 	
 }

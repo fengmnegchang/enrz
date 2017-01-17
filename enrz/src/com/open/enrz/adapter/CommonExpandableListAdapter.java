@@ -79,7 +79,7 @@ public class CommonExpandableListAdapter<G, C> extends BaseExpandableListAdapter
 	 * android.view.View, android.view.ViewGroup)
 	 */
 	@Override
-	public View getChildView(int groupPosition, int childPosition, boolean arg2, View arg3, ViewGroup arg4) {
+	public View getChildView(int groupPosition, int childPosition, boolean arg2, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -135,7 +135,7 @@ public class CommonExpandableListAdapter<G, C> extends BaseExpandableListAdapter
 	 * android.view.View, android.view.ViewGroup)
 	 */
 	@Override
-	public View getGroupView(int groupPosition, boolean arg1, View arg2, ViewGroup arg3) {
+	public View getGroupView(int groupPosition, boolean arg1, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		return null;
 	}

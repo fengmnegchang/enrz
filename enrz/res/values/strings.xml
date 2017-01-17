@@ -29,4 +29,5 @@
      <string name="enrz_pic_indicator_desp">美图tab页面</string>
      <string name="enrz_pic_grid_desp">美女grid列表</string>
      <string name="enrz_pic_nav_desp">美女nav</string>
+     <string name="enrz_pic_expend_desp">美图首页</string>
 </resources>

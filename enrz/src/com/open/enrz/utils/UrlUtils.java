@@ -50,6 +50,8 @@ public class UrlUtils {
 	public static final String ENRZ_COMMENT = "http://enrz.com/fhm/2015/05/21/2773.html";
 	/***美女列表**/
 	public static final String ENRZ_MISS = "http://pic.enrz.com/miss/";
+	/***美图**/
+	public static final String ENRZ_PIC="http://pic.enrz.com/";
 	
 	public static String getCookie(){
 		return COOKIE;
