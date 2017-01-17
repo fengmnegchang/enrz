@@ -46,12 +46,14 @@ public class EnrzImageViewPagerFragment extends BaseV4Fragment<SlideJson, EnrzIm
 	private List<SlideBean> list = new ArrayList<SlideBean>();
 	private TextView txt_st_ty;
 	private TextView txt_view_intro;
-
-	public static EnrzImageViewPagerFragment newInstance(String url, boolean isVisibleToUser) {
+	private int position;
+	
+	public static EnrzImageViewPagerFragment newInstance(String url, boolean isVisibleToUser,int position) {
 		EnrzImageViewPagerFragment fragment = new EnrzImageViewPagerFragment();
 		fragment.setFragment(fragment);
 		fragment.setUserVisibleHint(isVisibleToUser);
 		fragment.url = url;
+		fragment.position = position;
 		return fragment;
 	}
 
@@ -112,6 +114,7 @@ public class EnrzImageViewPagerFragment extends BaseV4Fragment<SlideJson, EnrzIm
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		viewpager.setCurrentItem(position);
 	}
 
 	/*

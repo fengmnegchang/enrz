@@ -66,7 +66,7 @@ public class DetailThumbPullListViewFragment extends LogoThumbnaillPullListViewF
 		listview.addHeaderView(headview);
 		listview.addFooterView(footview);
 		
-		Fragment headfragment = EnrzImageViewPagerFragment.newInstance(url, true);
+		Fragment headfragment = EnrzImageViewPagerFragment.newInstance(url, true,0);
 		getChildFragmentManager().beginTransaction().replace(R.id.layout_logo_thumbnaill_head, headfragment).commit();
 		
 		Fragment footfragment = DetailThumbExpendListFragment.newInstance(url, true);

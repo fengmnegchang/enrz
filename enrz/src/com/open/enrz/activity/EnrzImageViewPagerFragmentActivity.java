@@ -61,13 +61,16 @@ public class EnrzImageViewPagerFragmentActivity extends CommonFragmentActivity {
 		} else {
 			url = UrlUtils.ENRZ_IMAGE_VIEW_PAGER;
 		}
-		Fragment fragment = EnrzImageViewPagerFragment.newInstance(url, true);
+	    position = getIntent().getIntExtra("POSITION", 0);
+		Fragment fragment = EnrzImageViewPagerFragment.newInstance(url, true,position);
 		getSupportFragmentManager().beginTransaction().replace(R.id.layout_viewpager, fragment).commit();
 	}
 
-	public static void startEnrzImageViewPagerFragmentActivity(Context context, String url) {
+	
+	public static void startEnrzImageViewPagerFragmentActivity(Context context, String url,int position) {
 		Intent intent = new Intent();
 		intent.putExtra("URL", url);
+		intent.putExtra("POSITION", position);
 		intent.setClass(context, EnrzImageViewPagerFragmentActivity.class);
 		context.startActivity(intent);
 	}

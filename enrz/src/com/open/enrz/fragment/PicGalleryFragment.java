@@ -14,32 +14,32 @@ package com.open.enrz.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Gallery;
+import android.widget.Gallery.LayoutParams;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewSwitcher.ViewFactory;
 
 import com.open.enrz.R;
+import com.open.enrz.activity.EnrzImageViewPagerFragmentActivity;
+import com.open.enrz.activity.PicGalleryFragmentActivity;
 import com.open.enrz.adapter.PicGalleryAdapter;
 import com.open.enrz.bean.SlideBean;
 import com.open.enrz.json.SlideJson;
 import com.open.enrz.jsoup.ImageViewPagerService;
 import com.open.enrz.utils.PicBitmapTask;
-import com.open.enrz.utils.ScreenUtils;
 import com.open.enrz.utils.TextViewBitmapTask;
 
-import android.widget.Gallery.LayoutParams;
 /**
  ***************************************************************************************************************************************************************************** 
  * 
@@ -51,15 +51,17 @@ import android.widget.Gallery.LayoutParams;
  * @description:
  ***************************************************************************************************************************************************************************** 
  */
-public class PicGalleryFragment extends BaseV4Fragment<SlideJson, PicGalleryFragment> implements OnItemClickListener, ViewFactory {
+public class PicGalleryFragment extends BaseV4Fragment<SlideJson, PicGalleryFragment> implements OnItemClickListener, ViewFactory, OnClickListener {
 	private PicGalleryAdapter mPicGalleryAdapter;
 	private List<SlideBean> list = new ArrayList<SlideBean>();
 	public Gallery mGallery;
 	public ImageSwitcher imageswitcher;
 	private TextView txt_st_ty;
 	private TextView txt_view_intro;
-	private TextView btn_pre,btn_next;
-	
+	private TextView btn_pre, btn_next;
+	private ImageView img_pre, img_next;
+	private int currentposition = 0;
+
 	public static PicGalleryFragment newInstance(String url, boolean isVisibleToUser) {
 		PicGalleryFragment fragment = new PicGalleryFragment();
 		fragment.setFragment(fragment);
@@ -78,6 +80,8 @@ public class PicGalleryFragment extends BaseV4Fragment<SlideJson, PicGalleryFrag
 		txt_view_intro = (TextView) view.findViewById(R.id.txt_view_intro);
 		btn_pre = (TextView) view.findViewById(R.id.btn_pre);
 		btn_next = (TextView) view.findViewById(R.id.btn_next);
+		img_pre = (ImageView) view.findViewById(R.id.img_pre);
+		img_next = (ImageView) view.findViewById(R.id.img_next);
 		return view;
 	}
 
@@ -105,6 +109,10 @@ public class PicGalleryFragment extends BaseV4Fragment<SlideJson, PicGalleryFrag
 		super.bindEvent();
 		imageswitcher.setFactory(this);
 		mGallery.setOnItemClickListener(this);
+		btn_pre.setOnClickListener(this);
+		btn_next.setOnClickListener(this);
+		img_pre.setOnClickListener(this);
+		img_next.setOnClickListener(this);
 	}
 
 	/*
@@ -139,10 +147,15 @@ public class PicGalleryFragment extends BaseV4Fragment<SlideJson, PicGalleryFrag
 				txt_view_intro.setText(result.getList().get(0).getView_intro());
 				new TextViewBitmapTask(getActivity(), btn_pre).execute(result.getList().get(0).getPresrc());
 				new TextViewBitmapTask(getActivity(), btn_next).execute(result.getList().get(0).getNextsrc());
+
+				btn_pre.setTag(result.getList().get(0).getPrehref());
+				btn_next.setTag(result.getList().get(0).getNexthref());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		currentposition = 0;
+		new PicBitmapTask(getActivity(), imageswitcher).execute(list.get(currentposition).getSrc());
 	}
 
 	/*
@@ -165,7 +178,8 @@ public class PicGalleryFragment extends BaseV4Fragment<SlideJson, PicGalleryFrag
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		 new PicBitmapTask(getActivity(), imageswitcher).execute(list.get(arg2).getSrc());
+		currentposition = arg2;
+		new PicBitmapTask(getActivity(), imageswitcher).execute(list.get(arg2).getSrc());
 	}
 
 	/*
@@ -177,8 +191,49 @@ public class PicGalleryFragment extends BaseV4Fragment<SlideJson, PicGalleryFrag
 	public View makeView() {
 		ImageView imageview = new ImageView(getActivity());
 		imageview.setScaleType(ImageView.ScaleType.FIT_XY);
-		imageview.setLayoutParams(new ImageSwitcher.LayoutParams(
-				LayoutParams.FILL_PARENT, LayoutParams.MATCH_PARENT));
+		imageview.setLayoutParams(new ImageSwitcher.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.MATCH_PARENT));
+		imageview.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				EnrzImageViewPagerFragmentActivity.startEnrzImageViewPagerFragmentActivity(getActivity(), url,currentposition);
+			}
+		});
 		return imageview;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see android.view.View.OnClickListener#onClick(android.view.View)
+	 */
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.btn_pre:
+			PicGalleryFragmentActivity.startPicGalleryFragmentActivity(getActivity(), btn_pre.getTag().toString());
+			break;
+		case R.id.btn_next:
+			PicGalleryFragmentActivity.startPicGalleryFragmentActivity(getActivity(), btn_next.getTag().toString());
+			break;
+		case R.id.img_next:
+			if(currentposition>=list.size()-1){
+				currentposition=list.size()-1;
+			}else{
+				currentposition++;
+			}
+			onItemClick(mGallery, null, currentposition, currentposition);
+			break;
+		case R.id.img_pre:
+			if(currentposition==0){
+				currentposition=0;
+			}else{
+				currentposition--;
+			}
+			onItemClick(mGallery, null, currentposition, currentposition);
+		    break;
+		default:
+			break;
+		}
+
 	}
 }

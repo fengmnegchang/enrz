@@ -31,6 +31,7 @@ public class CommonFragmentActivity<T> extends BaseFragmentActivity<T> {
     public String url;
     public String title;
     public int pageNo;
+    public int position;
 	/*
 	 * (non-Javadoc)
 	 * 
