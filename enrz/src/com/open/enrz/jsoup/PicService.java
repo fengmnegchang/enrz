@@ -179,4 +179,68 @@ public class PicService extends CommonService {
 		}
 		return list;
 	}
+	
+	public static List<SlideBean> parseExpendHead(String href) {
+		List<SlideBean> list = new ArrayList<SlideBean>();
+		href = makeURL(href, new HashMap<String, Object>() {
+			{
+			}
+		});
+		Log.i(TAG, "url = " + href);
+
+		try {
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.enrzAgent).timeout(10000).get();
+			// System.out.println(doc.toString());
+			Element divElement = doc.select("div.c1_slide").first();
+			if(divElement!=null){
+				try {
+					/**
+					 <li><a title="质感酮体与挑逗让人觉得心潮爆棚"
+					  href="http://pic.enrz.com/2016/1213/210902.shtml" target="_blank">
+					  <img src="http://img1.enrz.cn/enrz/moudlepic/2162_module_images/201612/584fd11db08bd_446.jpg" 
+					 alt="质感酮体与挑逗让人觉得心潮爆棚"></a><span>质感酮体与挑逗让人觉得心潮爆棚</span></li>
+					 */
+					Elements  liElements = divElement.select("li");
+					if(liElements!=null && liElements.size()>0){
+						SlideBean bean;
+						for(int i=0;i<liElements.size();i++){
+							bean = new SlideBean();
+							try {
+								Element aElement = liElements.get(i).select("a").first();
+								String hrefa = aElement.attr("href");
+								Log.i(TAG, "i==" + i + ";hrefa==" + hrefa);
+								bean.setHref(hrefa);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							
+							try {
+								Element aElement = liElements.get(i).select("a").first();
+								String titlea = aElement.attr("title");
+								Log.i(TAG, "i==" + i + ";titlea==" + titlea);
+								bean.setSt_ty(titlea);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							try {
+								Element aElement = liElements.get(i).select("img").first();
+								String src = aElement.attr("src");
+								Log.i(TAG, "i==" + i + ";src==" + src);
+								bean.setSrc(src);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							list.add(bean);
+						}
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
 }
