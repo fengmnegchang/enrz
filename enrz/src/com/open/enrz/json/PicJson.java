@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.open.enrz.bean.PicBean;
+import com.open.enrz.bean.SlideBean;
 
 /**
  *****************************************************************************************************************************************************************************
@@ -29,7 +30,8 @@ import com.open.enrz.bean.PicBean;
  */
 public class PicJson extends CommonJson {
 	private List<PicBean> list = new ArrayList<PicBean>();
-
+	private List<SlideBean> listhead  =  new ArrayList<SlideBean>();
+	
 	public List<PicBean> getList() {
 		return list;
 	}
@@ -37,5 +39,15 @@ public class PicJson extends CommonJson {
 	public void setList(List<PicBean> list) {
 		this.list = list;
 	}
+
+	public List<SlideBean> getListhead() {
+		return listhead;
+	}
+
+	public void setListhead(List<SlideBean> listhead) {
+		this.listhead = listhead;
+	}
+	
+	
 
 }

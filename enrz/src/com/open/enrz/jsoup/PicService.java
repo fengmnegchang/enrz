@@ -1,5 +1,6 @@
 package com.open.enrz.jsoup;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,6 +13,7 @@ import org.jsoup.select.Elements;
 import android.util.Log;
 
 import com.open.enrz.bean.PicBean;
+import com.open.enrz.bean.SlideBean;
 import com.open.enrz.utils.UrlUtils;
 
 public class PicService extends CommonService {
@@ -104,6 +106,75 @@ public class PicService extends CommonService {
 			}
 
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public static List<SlideBean> parseHead(String href) {
+		List<SlideBean> list = new ArrayList<SlideBean>();
+		href = makeURL(href, new HashMap<String, Object>() {
+			{
+			}
+		});
+		Log.i(TAG, "url = " + href);
+
+		try {
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.enrzAgent).timeout(10000).get();
+			// System.out.println(doc.toString());
+			Element divElement = doc.select("div.li_r").first();
+			if(divElement!=null){
+				try {
+					/**
+					 *  <li>
+					<span class="o1"></span>
+					<div>
+						<a href="http://pic.enrz.com/2016/1014/196602.shtml" target="_blank"
+						 title="徐冬冬：性感给了我勇气"><img src="http://pic.enrz.cn/enrz/120x120/131/290/livEysEnX8ZvU.jpg" 
+						 alt="徐冬冬：性感给了我勇气" width=120 height=120>
+						 <span>徐冬冬：性感给了我勇气</span></a>
+					</div>
+				</li>
+					 */
+					Elements  liElements = divElement.select("li");
+					if(liElements!=null && liElements.size()>0){
+						SlideBean bean;
+						for(int i=0;i<liElements.size();i++){
+							bean = new SlideBean();
+							try {
+								Element aElement = liElements.get(i).select("a").first();
+								String hrefa = aElement.attr("href");
+								Log.i(TAG, "i==" + i + ";hrefa==" + hrefa);
+								bean.setHref(hrefa);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							
+							try {
+								Element aElement = liElements.get(i).select("a").first();
+								String titlea = aElement.attr("title");
+								Log.i(TAG, "i==" + i + ";titlea==" + titlea);
+								bean.setSt_ty(titlea);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							try {
+								Element aElement = liElements.get(i).select("img").first();
+								String src = aElement.attr("src");
+								Log.i(TAG, "i==" + i + ";src==" + src);
+								bean.setSrc(src);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							list.add(bean);
+						}
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return list;
