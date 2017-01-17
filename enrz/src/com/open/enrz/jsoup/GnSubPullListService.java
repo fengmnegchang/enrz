@@ -131,4 +131,155 @@ public class GnSubPullListService extends CommonService {
 		}
 		return list;
 	}
+	
+	
+	public static List<ThumbnailBean> parseDetailThumb(String href) {
+		List<ThumbnailBean> list = new ArrayList<ThumbnailBean>();
+		try {
+			href = makeURL(href, new HashMap<String, Object>() {
+				{
+				}
+			});
+			Log.i(TAG, "url = " + href);
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.enrzAgent).timeout(10000).get();
+			// System.out.println(doc.toString());
+			try {
+				Element detail_recomElement = doc.select("div.detail_recom").first();
+				Element detail_uElement = doc.select("div.detail_u").first();
+				Element detail_info_lElement = doc.select("div.detail_info_l").first();
+				if(detail_recomElement!=null){
+					setThumb(detail_recomElement,list);
+				}
+				if(detail_uElement!=null){
+					setThumb(detail_uElement,list);
+				}
+				if(detail_info_lElement!=null){
+					setThumbA(detail_info_lElement,list);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public static void setThumbA(Element divElement,List<ThumbnailBean> list){
+		try {
+			Elements moduleElements = divElement.select("a");
+			if (moduleElements != null && moduleElements.size() > 0) {
+				for (int i = 0; i < moduleElements.size(); i++) {
+					ThumbnailBean tbean = new ThumbnailBean();
+					try {
+						 /**
+						  */
+						try {
+							Element aElement = moduleElements.get(i).select("a").first();
+							if (aElement != null) {
+								String stamptxt = aElement.attr("title");
+								String stamphref = aElement.attr("href");
+								Log.i(TAG, "i==" + i + ";stamptxt==" + stamptxt + ";stamphref==" + stamphref);
+								tbean.setStamptxt(stamptxt);
+								tbean.setHref(stamphref);
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+						
+						try {
+							Element imgElement = moduleElements.get(i).select("img").first();
+							if (imgElement != null) {
+								String src = imgElement.attr("src");
+								Log.i(TAG, "i==" + i + ";src==" + src  );
+								tbean.setPicsrc(src);
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					list.add(tbean);
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public static void setThumb(Element divElement,List<ThumbnailBean> list){
+		try {
+			Elements moduleElements = divElement.select("li");
+			if (moduleElements != null && moduleElements.size() > 0) {
+				for (int i = 0; i < moduleElements.size(); i++) {
+					ThumbnailBean tbean = new ThumbnailBean();
+					try {
+						 /**
+						  * <li><a href="http://pic.enrz.com/2015/0716/16846.shtml"
+						  *  target="_blank" title="甜美嫩乳小女生自拍" rel="nofollow">
+						  *  <img width="120" height="120"
+						  *   src="http://img1.enrz.cn/enrz/moudlepic/2162_module_images/201507/55a772452d591_734.jpg"
+						  *   alt="甜美嫩乳小女生自拍">
+						  * <span>甜美嫩乳小女生自拍</span></a></li>
+						  */
+						try {
+							Element aElement = moduleElements.get(i).select("a").first();
+							if (aElement != null) {
+								String stamptxt = aElement.attr("title");
+								String stamphref = aElement.attr("href");
+								Log.i(TAG, "i==" + i + ";stamptxt==" + stamptxt + ";stamphref==" + stamphref);
+								tbean.setStamptxt(stamptxt);
+								tbean.setHref(stamphref);
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+						
+						try {
+							Element imgElement = moduleElements.get(i).select("img").first();
+							if (imgElement != null) {
+								String src = imgElement.attr("src");
+								Log.i(TAG, "i==" + i + ";src==" + src  );
+								tbean.setPicsrc(src);
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					list.add(tbean);
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+
+	public static List<ThumbnailBean> parseThumbFoot(String href) {
+		List<ThumbnailBean> list = new ArrayList<ThumbnailBean>();
+		try {
+			href = makeURL(href, new HashMap<String, Object>() {
+				{
+				}
+			});
+			Log.i(TAG, "url = " + href);
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.enrzAgent).timeout(10000).get();
+			// System.out.println(doc.toString());
+			try {
+				Element detail_recomElement = doc.select("div.detail_info_r").first();
+				if(detail_recomElement!=null){
+					setThumb(detail_recomElement,list);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

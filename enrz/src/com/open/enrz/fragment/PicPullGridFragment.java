@@ -26,6 +26,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -35,6 +37,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshHeadGridView;
 import com.open.enrz.R;
+import com.open.enrz.activity.EnrzImageViewPagerFragmentActivity;
 import com.open.enrz.adapter.PicAdapter;
 import com.open.enrz.adapter.SlidePagerAdapter;
 import com.open.enrz.bean.PicBean;
@@ -119,6 +122,14 @@ public class PicPullGridFragment extends BaseV4Fragment<PicJson, PicPullGridFrag
 		super.bindEvent();
 		mPullToRefreshHeadGridView.setOnRefreshListener(this);
 		viewpager.setOnPageChangeListener(this);
+//		mPullToRefreshHeadGridView.setOnItemClickListener(new OnItemClickListener() {
+//			@Override
+//			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//				if((int)id!=-1 && list!=null && list.size()>0 && list.get((int)id)!=null){
+//					EnrzImageViewPagerFragmentActivity.startEnrzImageViewPagerFragmentActivity(getActivity(), list.get((int)id).getHref());
+//				}
+//			}
+//		});
 	}
 
 	/*

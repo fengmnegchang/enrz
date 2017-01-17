@@ -136,6 +136,13 @@
             android:description="@string/enrz_pic_expend_desp" 
 			>
         </activity>
+        <!-- 看图详细-->
+        <activity
+            android:name="com.open.enrz.activity.DetailThumbPullListFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_detail_thumb_desp" 
+			>
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"
