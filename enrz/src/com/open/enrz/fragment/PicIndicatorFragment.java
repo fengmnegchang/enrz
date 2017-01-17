@@ -50,7 +50,7 @@ public class PicIndicatorFragment extends GnSubIndicatorFragment {
 		for (GnSubBean bean : result.getList()) {
 			titleList.add(bean.getTarget());
 			if (title.equals(bean.getTarget())) {
-				fragment = GnSubPullListViewFragment.newInstance(bean.getHref(), true);
+				fragment = PicExpendExpandableListViewHeadFragment.newInstance(bean.getHref(), true);
 			} else {
 				fragment = PicSubNavIndicatorFragment.newInstance(bean.getTarget(),bean.getHref(), false);
 			}

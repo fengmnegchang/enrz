@@ -59,7 +59,7 @@ public class PicIndicatorFragmentActivity extends CommonFragmentActivity {
 		if (getIntent().getStringExtra("URL") != null) {
 			url = getIntent().getStringExtra("URL");
 		} else {
-			url = UrlUtils.ENRZ;
+			url = UrlUtils.ENRZ_PIC;
 		}
 		
 		if (getIntent().getStringExtra("TITLE") != null) {

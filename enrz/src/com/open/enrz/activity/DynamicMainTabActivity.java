@@ -86,7 +86,7 @@ public class DynamicMainTabActivity extends CommonTabActivity<GlobalNavJson> {
 			if(mbean.getTarget().equals("首页")){
 				tab_main.setContent(new Intent(this, EnrzLogoDefaultActivity.class)).setIndicator(mbean.getTarget());
 			}else if(mbean.getTarget().equals("美图")){
-				intent = new Intent(this, EnrzWebViewActivity.class);
+				intent = new Intent(this, PicIndicatorFragmentActivity.class);
 				intent.putExtra("URL", mbean.getHref());
 				tab_main.setContent(intent).setIndicator(mbean.getTarget());
 			}else if(mbean.getTarget().equals("商城")){

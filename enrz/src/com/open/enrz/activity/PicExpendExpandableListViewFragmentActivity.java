@@ -18,6 +18,7 @@ import android.support.v4.app.Fragment;
 
 import com.open.enrz.R;
 import com.open.enrz.fragment.PicExpendExpandableListViewFragment;
+import com.open.enrz.fragment.PicExpendExpandableListViewHeadFragment;
 import com.open.enrz.fragment.PicPullGridFragment;
 import com.open.enrz.utils.UrlUtils;
 
@@ -64,7 +65,8 @@ public class PicExpendExpandableListViewFragmentActivity extends CommonFragmentA
 		}
 		
 		 
-		Fragment fragment = PicExpendExpandableListViewFragment.newInstance(url, true);
+//		Fragment fragment = PicExpendExpandableListViewFragment.newInstance(url, true);
+		Fragment fragment = PicExpendExpandableListViewHeadFragment.newInstance(url, true);
 		getSupportFragmentManager().beginTransaction().replace(R.id.layout_indicator, fragment).commit();
 	}
 
