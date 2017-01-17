@@ -23,12 +23,10 @@ public class UrlUtils {
 	public static final String userAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.64 Safari/537.31";
 	public static final String tencentAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36 QQBrowser/4.1.4132.400";
 	public static final String enrzAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36";
-	
-	 
-	
 	public static final String COOKIE = "__cfduid=df0a47eed3d6f56b0ce2b54928ced11051483189834; CNZZDATA1000003418=380336421-1483185838-%7C1483852222";
-	 
-	
+	//mobile
+	public static final String ENRZ_PIC_M = "http://meitu.enrz.com/";
+	public static final String ENRZ_M = "http://m.enrz.com/";
 	//网页
 	/***pc地址**/
 	public static final String ENRZ = "http://enrz.com/";
