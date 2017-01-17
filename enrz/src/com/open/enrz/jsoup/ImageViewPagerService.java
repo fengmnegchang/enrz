@@ -79,6 +79,59 @@ public class ImageViewPagerService extends CommonService {
 								e.printStackTrace();
 							}
 							
+							/**
+							 * <div class="detail_rel_c" id="hover1">
+<a  title="肉感写真女优阳光写真 笑容灿烂治愈" href="/2016/1014/196619.shtml">
+<img width="120" height="90" src="http://pic.enrz.cn/enrz/120x90/131/340/liNRSSYD0ubbg.jpg"
+ alt="肉感写真女优阳光写真 笑容灿烂治愈"><p class="picPN">上一个图集</p></a>	
+				</div>
+
+							 */
+							try {
+								Element divElement = doc.select("div.detail_rel_c").first();
+								if (divElement != null) {
+									String prehref = UrlUtils.ENRZ_PIC + divElement.select("a").first().attr("href");
+									Log.i(TAG, "i==" + i + ";prehref==" + prehref);
+									sbean.setPrehref(prehref);
+								}
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							
+							try {
+								Element divElement = doc.select("div.detail_rel_c").first();
+								if (divElement != null) {
+									String presrc =  divElement.select("img").first().attr("src");
+									Log.i(TAG, "i==" + i + ";presrc==" + presrc);
+									sbean.setPresrc(presrc);
+								}
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							
+							//next
+							try {
+								Element divElement = doc.select("div.detail_rel_c").get(1);
+								if (divElement != null) {
+									String nexthref = UrlUtils.ENRZ_PIC + divElement.select("a").first().attr("href");
+									Log.i(TAG, "i==" + i + ";nexthref==" + nexthref);
+									sbean.setNexthref(nexthref);
+								}
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							
+							try {
+								Element divElement = doc.select("div.detail_rel_c").get(1);
+								if (divElement != null) {
+									String nextsrc =  divElement.select("img").first().attr("src");
+									Log.i(TAG, "i==" + i + ";nextsrc==" + nextsrc);
+									sbean.setNextsrc(nextsrc);
+								}
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+							
 							try {
 								Element aElement = moduleElements.get(i).select("a").first();
 								if (aElement != null) {

@@ -34,6 +34,12 @@ public class SlideBean extends CommonBean{
 	private String st_ty;
 	private String view_intro;
 	
+	private String prehref;
+	private String presrc;
+	private String nexthref;
+	private String nextsrc;
+	
+	
 	public String getHref() {
 		return href;
 	}
@@ -57,6 +63,30 @@ public class SlideBean extends CommonBean{
 	}
 	public void setView_intro(String view_intro) {
 		this.view_intro = view_intro;
+	}
+	public String getPrehref() {
+		return prehref;
+	}
+	public void setPrehref(String prehref) {
+		this.prehref = prehref;
+	}
+	public String getPresrc() {
+		return presrc;
+	}
+	public void setPresrc(String presrc) {
+		this.presrc = presrc;
+	}
+	public String getNexthref() {
+		return nexthref;
+	}
+	public void setNexthref(String nexthref) {
+		this.nexthref = nexthref;
+	}
+	public String getNextsrc() {
+		return nextsrc;
+	}
+	public void setNextsrc(String nextsrc) {
+		this.nextsrc = nextsrc;
 	}
 
 }

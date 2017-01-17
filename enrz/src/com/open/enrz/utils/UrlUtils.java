@@ -53,7 +53,7 @@ public class UrlUtils {
 	/***美图**/
 	public static final String ENRZ_PIC="http://pic.enrz.com/";
 	/***看图详细**/
-	public static final String ENRZ_DETAIL_THUMB="http://pic.enrz.com/2017/0106/215617.shtml";
+	public static final String ENRZ_DETAIL_THUMB="http://pic.enrz.com/2016/1014/196606.shtml";
 	
 	public static String getCookie(){
 		return COOKIE;

@@ -26,6 +26,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Gallery;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher.ViewFactory;
 
@@ -35,6 +36,8 @@ import com.open.enrz.bean.SlideBean;
 import com.open.enrz.json.SlideJson;
 import com.open.enrz.jsoup.ImageViewPagerService;
 import com.open.enrz.utils.PicBitmapTask;
+import com.open.enrz.utils.ScreenUtils;
+import com.open.enrz.utils.TextViewBitmapTask;
 
 import android.widget.Gallery.LayoutParams;
 /**
@@ -53,7 +56,10 @@ public class PicGalleryFragment extends BaseV4Fragment<SlideJson, PicGalleryFrag
 	private List<SlideBean> list = new ArrayList<SlideBean>();
 	public Gallery mGallery;
 	public ImageSwitcher imageswitcher;
-
+	private TextView txt_st_ty;
+	private TextView txt_view_intro;
+	private TextView btn_pre,btn_next;
+	
 	public static PicGalleryFragment newInstance(String url, boolean isVisibleToUser) {
 		PicGalleryFragment fragment = new PicGalleryFragment();
 		fragment.setFragment(fragment);
@@ -68,6 +74,10 @@ public class PicGalleryFragment extends BaseV4Fragment<SlideJson, PicGalleryFrag
 		View view = inflater.inflate(R.layout.fragment_pic_gallery, container, false);
 		mGallery = (Gallery) view.findViewById(R.id.gallery);
 		imageswitcher = (ImageSwitcher) view.findViewById(R.id.imageswitcher);
+		txt_st_ty = (TextView) view.findViewById(R.id.txt_st_ty);
+		txt_view_intro = (TextView) view.findViewById(R.id.txt_view_intro);
+		btn_pre = (TextView) view.findViewById(R.id.btn_pre);
+		btn_next = (TextView) view.findViewById(R.id.btn_next);
 		return view;
 	}
 
@@ -123,7 +133,16 @@ public class PicGalleryFragment extends BaseV4Fragment<SlideJson, PicGalleryFrag
 		list.clear();
 		list.addAll(result.getList());
 		mPicGalleryAdapter.notifyDataSetChanged();
-
+		try {
+			if (result.getList().size() > 0) {
+				txt_st_ty.setText(result.getList().get(0).getSt_ty());
+				txt_view_intro.setText(result.getList().get(0).getView_intro());
+				new TextViewBitmapTask(getActivity(), btn_pre).execute(result.getList().get(0).getPresrc());
+				new TextViewBitmapTask(getActivity(), btn_next).execute(result.getList().get(0).getNextsrc());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/*
