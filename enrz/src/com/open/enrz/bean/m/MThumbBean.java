@@ -56,6 +56,7 @@ public class MThumbBean extends CommonBean{
 	private String excerpt;
 	private String info;
 	private String categoryhref;
+	private String crumbstitle;
 	
 	public String getDataoriginal() {
 		return dataoriginal;
@@ -92,6 +93,12 @@ public class MThumbBean extends CommonBean{
 	}
 	public void setCategoryhref(String categoryhref) {
 		this.categoryhref = categoryhref;
+	}
+	public String getCrumbstitle() {
+		return crumbstitle;
+	}
+	public void setCrumbstitle(String crumbstitle) {
+		this.crumbstitle = crumbstitle;
 	}
 	
 	

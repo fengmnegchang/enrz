@@ -26,7 +26,10 @@ public class UrlUtils {
 	public static final String COOKIE = "__cfduid=df0a47eed3d6f56b0ce2b54928ced11051483189834; CNZZDATA1000003418=380336421-1483185838-%7C1483852222";
 	//mobile
 	public static final String ENRZ_PIC_M = "http://meitu.enrz.com/";
+	/***m主页**/
 	public static final String ENRZ_M = "http://m.enrz.com/";
+	/***分类有分页**/
+	public static final String ENRZ_CATEGORY = "http://m.enrz.com/category/info/weird";
 	//网页
 	/***pc地址**/
 	public static final String ENRZ = "http://enrz.com/";
