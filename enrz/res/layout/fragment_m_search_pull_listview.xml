@@ -3,10 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <EditText
+        android:id="@+id/edit_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btn_search"
+        android:layout_toLeftOf="@+id/btn_search"
+        android:hint="搜索" />
+
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="搜索" />
+
     <TextView
         android:id="@+id/txt_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_search"
         android:layout_margin="5dp" />
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView

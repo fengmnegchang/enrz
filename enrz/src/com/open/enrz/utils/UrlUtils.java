@@ -30,6 +30,9 @@ public class UrlUtils {
 	public static final String ENRZ_M = "http://m.enrz.com/";
 	/***分类有分页**/
 	public static final String ENRZ_CATEGORY = "http://m.enrz.com/category/info/weird";
+	/***搜索**/
+	public static final String ENRZ_S = "http://m.enrz.com/";
+	
 	//网页
 	/***pc地址**/
 	public static final String ENRZ = "http://enrz.com/";

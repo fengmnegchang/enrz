@@ -187,6 +187,12 @@
             android:configChanges="keyboard|keyboardHidden|navigation"
             android:description="@string/enrz_m_thumb_cate_page_list_desp" >
         </activity>
+         <!-- m搜索 -->
+        <activity
+            android:name="com.open.enrz.activity.m.MSearchPageListFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_m_search_page_list_desp" >
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"
