@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="8dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp" >
+
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:scaleType="fitXY"
+        android:src="@drawable/common_v4" />
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageview"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:text="太子妃张天爱，上了男人装"
+        android:textColor="#000000"
+        android:textSize="16sp" />
+
+    <View
+        android:id="@+id/view_t"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/text_title"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/gray" />
+
+    <TextView
+        android:id="@+id/text_excerpt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_t"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:text="5月号，我们把太子妃请上了封面 别说你不认识她 她大概是唯一一个让姑娘们抢着叫老公的女人 采访者按： 怎么称呼她，... "
+        android:textColor="#666"
+        android:textSize="14sp" />
+
+    <com.open.enrz.view.ExpendListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_excerpt"
+        android:layout_gravity="center" />
+
+    <View
+        android:id="@+id/view_e"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/listView"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/gray" />
+   <ImageView
+        android:id="@+id/img_left"
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/view_e"
+        android:src="@drawable/tab_app_new" />
+   
+    <TextView
+        android:id="@+id/text_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_e"
+        android:layout_marginLeft="5dp"
+        android:layout_alignBottom="@+id/img_left"
+        android:layout_toRightOf="@+id/img_left"
+        android:layout_marginTop="2dp"
+        android:text="Incoming-girl, 尤物分类下有54篇文章看更多"
+        android:textColor="#666"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/text_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/img_left"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/view_e"
+        android:layout_marginRight="5dp"
+        android:text="看更多"
+        android:textColor="#666"
+        android:background="@drawable/rectangle_shape"
+        android:textSize="12sp" />
+
+</RelativeLayout>

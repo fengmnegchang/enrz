@@ -169,6 +169,12 @@
             android:configChanges="keyboard|keyboardHidden|navigation"
             android:description="@string/enrz_m_thumb_head_list_desp" >
         </activity>
+        <!--   m cate数据 -->
+        <activity
+            android:name="com.open.enrz.activity.m.MThumbCateExpandListFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_m_thumb_cate_expand_list_desp" >
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"

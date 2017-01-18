@@ -35,4 +35,5 @@
      <string name="enrz_detail_thumb_gallery_desp">看图详细gallery</string>
      <string name="enrz_m_webview_desp">m webview </string>
      <string name="enrz_m_thumb_head_list_desp">m首页头部list</string>
+     <string name="enrz_m_thumb_cate_expand_list_desp"> m cate数据</string>
 </resources>

@@ -95,4 +95,5 @@ public class MThumbBean extends CommonBean{
 	}
 	
 	
+	
 }
