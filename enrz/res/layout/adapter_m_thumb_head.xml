@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="8dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp" >
+
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:scaleType="fitXY"
+        android:src="@drawable/common_v4" />
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageview"
+        android:text="偷窥界的8大传奇（只有老大还没进局子）"
+        android:textColor="#000000"
+         android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="16sp" />
+
+    <View
+        android:id="@+id/view_t"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@+id/text_title"
+        android:background="@color/gray" />
+
+    <TextView
+        android:id="@+id/text_excerpt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_t"
+         android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="以下是偷窥界带有传奇色彩的8位“偷窥圣手”，他们思路缜密、器好活细，但全都折在了一些奇怪的巧合上……都别YY了，像下面这... "
+        android:textColor="#666"
+        android:textSize="14sp" />
+    
+    <View
+        android:id="@+id/view_e"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@+id/text_excerpt"
+        android:background="@color/gray" />
+    
+    <TextView
+        android:id="@+id/text_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_e"
+         android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="猎奇 2016-08-12 "
+        android:textColor="#666"
+        android:textSize="14sp" />
+    
+     <TextView
+        android:id="@+id/text_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_e"
+        android:layout_alignParentRight="true"
+         android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="20dp"
+        android:text="阅读全文"
+        android:textColor="#666"
+        android:textSize="14sp" />
+
+</RelativeLayout>

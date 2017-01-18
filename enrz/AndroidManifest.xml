@@ -163,6 +163,12 @@
             android:configChanges="keyboard|keyboardHidden|navigation"
             android:description="@string/enrz_m_webview_desp" >
         </activity>
+         <!--  m首页头部list -->
+        <activity
+            android:name="com.open.enrz.activity.m.MThumbHeadListFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_m_thumb_head_list_desp" >
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"
