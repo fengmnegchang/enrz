@@ -58,17 +58,24 @@
         android:layout_marginBottom="5dp"
         android:layout_below="@+id/text_excerpt"
         android:background="@color/gray" />
-    
+    <ImageView
+        android:id="@+id/img_left"
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/view_e"
+        android:src="@drawable/tab_app_new" />
     <TextView
         android:id="@+id/text_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/view_e"
-         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_alignBottom="@+id/img_left"
+        android:layout_toRightOf="@+id/img_left"
         android:text="猎奇 2016-08-12 "
+        android:layout_marginTop="2dp"
         android:textColor="#666"
-        android:textSize="14sp" />
+        android:textSize="12sp" />
     
      <TextView
         android:id="@+id/text_more"
@@ -76,11 +83,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/view_e"
         android:layout_alignParentRight="true"
-         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_alignBottom="@+id/img_left"
+        android:background="@drawable/rectangle_shape"
         android:layout_marginRight="20dp"
         android:text="阅读全文"
         android:textColor="#666"
-        android:textSize="14sp" />
+        android:textSize="12sp" />
 
 </RelativeLayout>

@@ -5,7 +5,7 @@
     >
 
 
-   <com.open.enrz.view.ExpendListView
+   <ListView
         android:id="@+id/expendlistview"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
