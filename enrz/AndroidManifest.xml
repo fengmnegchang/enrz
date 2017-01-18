@@ -193,6 +193,12 @@
             android:configChanges="keyboard|keyboardHidden|navigation"
             android:description="@string/enrz_m_search_page_list_desp" >
         </activity>
+        <!-- m内容详细 -->
+        <activity
+            android:name="com.open.enrz.activity.m.MArticlePFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_m_article_desp" >
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"

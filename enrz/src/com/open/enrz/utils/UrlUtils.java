@@ -32,6 +32,8 @@ public class UrlUtils {
 	public static final String ENRZ_CATEGORY = "http://m.enrz.com/category/info/weird";
 	/***搜索**/
 	public static final String ENRZ_S = "http://m.enrz.com/";
+	/***内容详细**/
+	public static final String ENRZ_M_CONTAINER  = "http://m.enrz.com/%E5%81%B7%E7%AA%A5%E7%95%8C%E7%9A%848%E5%A4%A7%E4%BC%A0%E5%A5%87%EF%BC%88%E5%8F%AA%E6%9C%89%E8%80%81%E5%A4%A7%E8%BF%98%E6%B2%A1%E8%BF%9B%E5%B1%80%E5%AD%90%EF%BC%89.html";
 	
 	//网页
 	/***pc地址**/
