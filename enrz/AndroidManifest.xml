@@ -157,6 +157,12 @@
             android:description="@string/enrz_detail_thumb_gallery_desp" 
 			>
         </activity>
+         <!-- m webview -->
+        <activity
+            android:name="com.open.enrz.activity.m.EnrzMWebViewActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_m_webview_desp" >
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"

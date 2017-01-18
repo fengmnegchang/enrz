@@ -33,4 +33,5 @@
      <string name="enrz_detail_thumb_desp">看图详细</string>
      <string name="enrz_pic_gallery_desp">看图gallery</string>
      <string name="enrz_detail_thumb_gallery_desp">看图详细gallery</string>
+     <string name="enrz_m_webview_desp">m webview </string>
 </resources>
