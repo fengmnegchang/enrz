@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.text.Spannable;
 import android.text.format.DateUtils;
 import android.text.style.ImageSpan;
@@ -102,6 +103,9 @@ public class MArticlePPullScrollFragment extends BaseV4Fragment<MArticlePJson, M
 		getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
 		imglist = new ArrayList<String>();
 		htmlSpanner = new HtmlSpanner(getActivity(), dm.widthPixels, handler);
+		
+		Fragment fragment = MDuoShuoIndicatorExpendFragment.newInstance(url, true);
+		getChildFragmentManager().beginTransaction().replace(R.id.layout_m_comment, fragment).commit();
 	}
 
 	final Handler handler = new Handler() {

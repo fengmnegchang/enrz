@@ -41,6 +41,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" 
             />
+         <FrameLayout
+            android:id="@+id/layout_m_comment"
+            android:layout_width="match_parent"
+            android:layout_height="600dp" 
+            />
     </LinearLayout>
 
 </com.handmark.pulltorefresh.library.PullToRefreshScrollView>

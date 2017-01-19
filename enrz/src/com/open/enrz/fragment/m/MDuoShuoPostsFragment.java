@@ -11,11 +11,7 @@
  */
 package com.open.enrz.fragment.m;
 
-import android.os.Message;
-
 import com.open.enrz.fragment.CommentPullListViewFragment;
-import com.open.enrz.json.CommentJson;
-import com.open.enrz.jsoup.CommentService;
 
 /**
  *****************************************************************************************************************************************************************************
@@ -37,37 +33,5 @@ public class MDuoShuoPostsFragment extends CommentPullListViewFragment{
 		fragment.url = url;
 		return fragment;
 	}
-	 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.open.enrz.fragment.BaseV4Fragment#call()
-	 */
-	@Override
-	public CommentJson call() throws Exception {
-		// TODO Auto-generated method stub
-		CommentJson mCommentJson = new CommentJson();
-		mCommentJson.setList(CommentService.parseComment(url));
-		return mCommentJson;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.open.enrz.fragment.BaseV4Fragment#handlerMessage(android.os.Message)
-	 */
-	@Override
-	public void handlerMessage(Message msg) {
-		// TODO Auto-generated method stub
-		switch (msg.what) {
-		case MESSAGE_HANDLER:
-			doAsync(this, this, this);
-			break;
-		default:
-			break;
-		}
-	}
-	 
 
 }
