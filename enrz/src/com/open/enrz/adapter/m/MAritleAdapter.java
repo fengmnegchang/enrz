@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.open.enrz.R;
 import com.open.enrz.activity.EnrzWebViewActivity;
+import com.open.enrz.activity.m.MArticlePFragmentActivity;
 import com.open.enrz.adapter.CommonAdapter;
 import com.open.enrz.bean.m.MArticleBean;
 
@@ -61,8 +62,8 @@ public class MAritleAdapter extends CommonAdapter<MArticleBean> {
 			convertView.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, bean.getHref());
-
+//					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, bean.getHref());
+					MArticlePFragmentActivity.startMArticlePFragmentActivity(mContext, bean.getHref());
 				}
 			});
 		}

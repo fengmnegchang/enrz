@@ -29,7 +29,7 @@ public class MArticlePScrollService extends CommonService {
 				if (contentElement != null) {
 					String articlep = contentElement.toString().replace("rel=\"nofollow\"><img", "rel=\"nofollow\"><a");
 					mArticlebean.setArticlep(articlep);
-					System.out.println(articlep);
+//					System.out.println(articlep);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

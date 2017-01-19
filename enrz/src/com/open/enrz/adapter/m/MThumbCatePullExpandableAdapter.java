@@ -25,6 +25,8 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.enrz.R;
 import com.open.enrz.activity.EnrzWebViewActivity;
+import com.open.enrz.activity.m.MArticlePFragmentActivity;
+import com.open.enrz.activity.m.MThumbCatePageListFragmentActivity;
 import com.open.enrz.adapter.CommonExpandableListAdapter;
 import com.open.enrz.bean.m.MArticleBean;
 import com.open.enrz.bean.m.MThumbBean;
@@ -72,7 +74,8 @@ public class MThumbCatePullExpandableAdapter extends CommonExpandableListAdapter
 			mGroupViewHolder.text_moduleTitle.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, bean.getHref());
+//					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, bean.getHref());
+					MThumbCatePageListFragmentActivity.startMThumbCatePageListFragmentActivity(mContext, bean.getHref());
 				}
 			});
 		}
@@ -143,21 +146,25 @@ public class MThumbCatePullExpandableAdapter extends CommonExpandableListAdapter
 			mChildViewHolder.text_more.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, bean.getHref());
+//					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, bean.getHref());
+					MArticlePFragmentActivity.startMArticlePFragmentActivity(mContext, bean.getHref());
 				}
 			});
 
 			mChildViewHolder.text_info.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, bean.getCategoryhref());
+//					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, bean.getCategoryhref());
+					MThumbCatePageListFragmentActivity.startMThumbCatePageListFragmentActivity(mContext, bean.getCategoryhref());
+					
 				}
 			});
 		}
 		convertView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				EnrzWebViewActivity.startEnrzWebViewActivity(mContext, getGroup(groupPosition).getHref());
+//				EnrzWebViewActivity.startEnrzWebViewActivity(mContext, getGroup(groupPosition).getHref());
+				MArticlePFragmentActivity.startMArticlePFragmentActivity(mContext, getGroup(groupPosition).getHref());
 			}
 		});
 

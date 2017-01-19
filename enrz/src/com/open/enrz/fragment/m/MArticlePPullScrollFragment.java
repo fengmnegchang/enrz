@@ -29,6 +29,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -39,6 +40,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
 import com.open.enrz.R;
 import com.open.enrz.activity.HtmlImgPreviewActivity;
+import com.open.enrz.activity.m.MArticlePFragmentActivity;
 import com.open.enrz.bean.m.MArticlePBean;
 import com.open.enrz.fragment.BaseV4Fragment;
 import com.open.enrz.json.m.MArticlePJson;
@@ -150,6 +152,34 @@ public class MArticlePPullScrollFragment extends BaseV4Fragment<MArticlePJson, M
 		// TODO Auto-generated method stub
 		super.bindEvent();
 		mPullToRefreshScrollView.setOnRefreshListener(this);
+		txt_preleft.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				try {
+					String prelefthref = txt_preleft.getTag().toString();
+					if(prelefthref!=null && prelefthref.length()>0){
+						MArticlePFragmentActivity.startMArticlePFragmentActivity(getActivity(), prelefthref);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+			}
+		});
+		txt_nextright.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				try {
+					String nextrighthref = txt_nextright.getTag().toString();
+					if(nextrighthref!=null && nextrighthref.length()>0){
+						MArticlePFragmentActivity.startMArticlePFragmentActivity(getActivity(), nextrighthref);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+			}
+		});
 	}
 
 	/* (non-Javadoc)

@@ -24,6 +24,8 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.enrz.R;
 import com.open.enrz.activity.EnrzWebViewActivity;
+import com.open.enrz.activity.m.MArticlePFragmentActivity;
+import com.open.enrz.activity.m.MThumbCatePageListFragmentActivity;
 import com.open.enrz.adapter.CommonAdapter;
 import com.open.enrz.bean.m.MThumbBean;
 
@@ -74,23 +76,23 @@ public class MThumbHeadAdapter extends CommonAdapter<MThumbBean> {
 			convertView.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, bean.getHref());
-					
+//					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, bean.getHref());
+					MArticlePFragmentActivity.startMArticlePFragmentActivity(mContext, bean.getHref());
 				}
 			});
 			viewHolder.text_more.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, bean.getHref());
-					
+//					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, bean.getHref());
+					MArticlePFragmentActivity.startMArticlePFragmentActivity(mContext, bean.getHref());
 				}
 			});
 			
 			viewHolder.text_info.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, bean.getCategoryhref());
-					
+//					EnrzWebViewActivity.startEnrzWebViewActivity(mContext, bean.getCategoryhref());
+					MThumbCatePageListFragmentActivity.startMThumbCatePageListFragmentActivity(mContext, bean.getCategoryhref());
 				}
 			});
 		}
