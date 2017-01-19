@@ -59,6 +59,7 @@ public class MThumbPullListFragment extends MThumbHeadListFragment implements   
 		View view = inflater.inflate(R.layout.fragment_m_thumb_pull_listview, container, false);
 		mExpendListView = (PullToRefreshListView) view.findViewById(R.id.pull_refresh_list);
 		txt_title = (TextView) view.findViewById(R.id.txt_title);
+		
 		return view;
 	}
 	

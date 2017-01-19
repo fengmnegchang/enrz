@@ -3,10 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <include
+        android:id="@+id/image_head"
+        layout="@layout/layout_head_imagview" />
+
     <TextView
         android:id="@+id/txt_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/image_head"
         android:layout_margin="5dp" />
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView

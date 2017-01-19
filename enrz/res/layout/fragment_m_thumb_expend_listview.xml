@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-
+<include
+        android:id="@+id/image_head"
+        layout="@layout/layout_head_imagview" />
 
    <com.open.enrz.view.ExpendListView
         android:id="@+id/expendlistview"
@@ -13,6 +15,7 @@
         android:divider="#19000000"
         android:dividerHeight="0dp"
         android:fadingEdge="none"
+        android:layout_below="@+id/image_head"
         android:fastScrollEnabled="false"
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"
