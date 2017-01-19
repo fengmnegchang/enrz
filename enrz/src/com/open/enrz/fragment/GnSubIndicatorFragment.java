@@ -49,12 +49,13 @@ public class GnSubIndicatorFragment extends BaseV4Fragment<GnSubJson, GnSubIndic
 	public List<Fragment> listRankFragment = new ArrayList<Fragment>();// view数组
 	public CommonFragmentPagerAdapter mRankPagerAdapter;
 
-	public static GnSubIndicatorFragment newInstance(String title,String url, boolean isVisibleToUser) {
+	public static GnSubIndicatorFragment newInstance(String title,String url, boolean isVisibleToUser,int position) {
 		GnSubIndicatorFragment fragment = new GnSubIndicatorFragment();
 		fragment.setFragment(fragment);
 		fragment.setUserVisibleHint(isVisibleToUser);
 		fragment.title = title;
 		fragment.url = url;
+		fragment.position = position;
 		return fragment;
 	}
 
@@ -108,6 +109,10 @@ public class GnSubIndicatorFragment extends BaseV4Fragment<GnSubJson, GnSubIndic
 		}
 		mRankPagerAdapter.notifyDataSetChanged();
 		indicator.notifyDataSetChanged();
+		
+		if(position>0){
+			weakReferenceHandler.sendEmptyMessageDelayed(MESSAGE_HANDLER_COMPLETE, 2000);
+		}
 	}
 
 	/*
@@ -122,6 +127,10 @@ public class GnSubIndicatorFragment extends BaseV4Fragment<GnSubJson, GnSubIndic
 		switch (msg.what) {
 		case MESSAGE_HANDLER:
 			doAsync(this, this, this);
+			break;
+		case MESSAGE_HANDLER_COMPLETE:
+			viewpager.setCurrentItem(position);
+			indicator.setCurrentItem(position);
 			break;
 		default:
 			break;

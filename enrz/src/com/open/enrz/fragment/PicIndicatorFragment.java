@@ -30,12 +30,13 @@ import com.open.enrz.json.GnSubJson;
  */
 public class PicIndicatorFragment extends GnSubIndicatorFragment {
 
-	public static PicIndicatorFragment newInstance(String title, String url, boolean isVisibleToUser) {
+	public static PicIndicatorFragment newInstance(String title, String url, boolean isVisibleToUser,int position) {
 		PicIndicatorFragment fragment = new PicIndicatorFragment();
 		fragment.setFragment(fragment);
 		fragment.setUserVisibleHint(isVisibleToUser);
 		fragment.title = title;
 		fragment.url = url;
+		fragment.position = position;
 		return fragment;
 	}
 
@@ -56,8 +57,13 @@ public class PicIndicatorFragment extends GnSubIndicatorFragment {
 			}
 			listRankFragment.add(fragment);
 		}
+		 
 		mRankPagerAdapter.notifyDataSetChanged();
 		indicator.notifyDataSetChanged();
+		
+		if(position>0){
+			weakReferenceHandler.sendEmptyMessageDelayed(MESSAGE_HANDLER_COMPLETE, 2000);
+		}
 	}
 
 }

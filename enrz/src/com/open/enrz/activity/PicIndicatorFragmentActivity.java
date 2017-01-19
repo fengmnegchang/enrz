@@ -67,14 +67,16 @@ public class PicIndicatorFragmentActivity extends CommonFragmentActivity {
 		} else {
 			title = "美图";
 		}
-		Fragment fragment = PicIndicatorFragment.newInstance(title,url, true);
+		position = getIntent().getIntExtra("POSITION", 0);
+		Fragment fragment = PicIndicatorFragment.newInstance(title,url, true,position);
 		getSupportFragmentManager().beginTransaction().replace(R.id.layout_indicator, fragment).commit();
 	}
 
-	public static void startPicIndicatorFragmentActivity(Context context, String title, String url) {
+	public static void startPicIndicatorFragmentActivity(Context context, String title, String url,int position) {
 		Intent intent = new Intent();
 		intent.putExtra("TITLE", title);
 		intent.putExtra("URL", url);
+		intent.putExtra("POSITION", position);
 		intent.setClass(context, PicIndicatorFragmentActivity.class);
 		context.startActivity(intent);
 	}

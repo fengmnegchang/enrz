@@ -66,14 +66,16 @@ public class GnSubIndicatorFragmentActivity extends CommonFragmentActivity {
 		} else {
 			title = "尤物";
 		}
-		Fragment fragment = GnSubIndicatorFragment.newInstance(title,url, true);
+		position = getIntent().getIntExtra("POSITION", 0);
+		Fragment fragment = GnSubIndicatorFragment.newInstance(title,url, true,position);
 		getSupportFragmentManager().beginTransaction().replace(R.id.layout_indicator, fragment).commit();
 	}
 
-	public static void startGnSubIndicatorFragmentActivity(Context context, String title, String url) {
+	public static void startGnSubIndicatorFragmentActivity(Context context, String title, String url,int position) {
 		Intent intent = new Intent();
 		intent.putExtra("TITLE", title);
 		intent.putExtra("URL", url);
+		intent.putExtra("POSITION", position);
 		intent.setClass(context, GnSubIndicatorFragmentActivity.class);
 		context.startActivity(intent);
 	}
