@@ -41,6 +41,7 @@ public class MobileGlobalNavActivity extends SlidingFragmentActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setStatusBarColor(getResources().getColor(android.R.color.black));
 		setContentView(R.layout.activity_mobile_global_nav);
 		// 初始化SlideMenu
 		initRightMenu();
