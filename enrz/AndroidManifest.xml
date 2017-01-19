@@ -203,7 +203,9 @@
         <activity
             android:name="com.open.enrz.activity.m.MDuoShuoListPostsFragmentActivity"
             android:configChanges="keyboard|keyboardHidden|navigation"
-            android:description="@string/enrz_m_article_duoshuo_desp" >
+            android:description="@string/enrz_m_article_duoshuo_desp" 
+            android:theme="@style/Theme.PageIndicatorDefaults" 
+            >
         </activity>
         <!-- 所有类列表 -->
         <activity

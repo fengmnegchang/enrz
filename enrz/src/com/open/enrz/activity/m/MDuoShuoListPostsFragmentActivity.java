@@ -19,6 +19,7 @@ import android.support.v4.app.Fragment;
 import com.open.enrz.R;
 import com.open.enrz.activity.CommonFragmentActivity;
 import com.open.enrz.fragment.m.MArticlePPullScrollFragment;
+import com.open.enrz.fragment.m.MDuoShuoIndicatorFragment;
 import com.open.enrz.utils.UrlUtils;
 
 /**
@@ -63,7 +64,7 @@ public class MDuoShuoListPostsFragmentActivity extends CommonFragmentActivity {
 			url = UrlUtils.ENRZ_M_CONTAINER;
 		}
 		 
-		Fragment fragment = MArticlePPullScrollFragment.newInstance(url, true);
+		Fragment fragment = MDuoShuoIndicatorFragment.newInstance(url, true);
 		getSupportFragmentManager().beginTransaction().replace(R.id.layout_indicator, fragment).commit();
 	}
 
