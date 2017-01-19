@@ -209,6 +209,13 @@
             android:theme="@style/Theme.PageIndicatorDefaults" 
             >
         </activity>
+          <!-- mobile左菜单 -->
+        <activity
+            android:name="com.open.enrz.activity.mobile.MobileGlobalNavActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_mobile_global_nav_desp" 
+            >
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"
