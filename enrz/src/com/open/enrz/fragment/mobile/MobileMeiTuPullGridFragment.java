@@ -11,12 +11,27 @@
  */
 package com.open.enrz.fragment.mobile;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import android.os.Message;
 import android.util.Log;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response.Listener;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.open.enrz.adapter.PicAdapter;
+import com.open.enrz.bean.PicBean;
+import com.open.enrz.bean.mobile.MobileMeiTuBean;
 import com.open.enrz.fragment.PicPullGridFragment;
 import com.open.enrz.json.PicJson;
+import com.open.enrz.jsoup.PicService;
+import com.open.enrz.jsoup.mobile.MobileMeiTuJson;
+import com.open.enrz.utils.UrlUtils;
 
 /**
  ***************************************************************************************************************************************************************************** 
@@ -61,6 +76,90 @@ public class MobileMeiTuPullGridFragment extends PicPullGridFragment {
 		mPullToRefreshHeadGridView.setOnRefreshListener(this);
 	}
 
+	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.open.enrz.fragment.BaseV4Fragment#call()
+	 */
+	@Override
+	public PicJson call() throws Exception {
+		// TODO Auto-generated method stub
+		PicJson mPicJson = new PicJson();
+		if(pageNo==1){
+			mPicJson.setList(PicService.parsePic(url, pageNo));
+		}
+		return mPicJson;
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.open.enrz.fragment.BaseV4Fragment#handlerMessage(android.os.Message)
+	 */
+	@Override
+	public void handlerMessage(Message msg) {
+		// TODO Auto-generated method stub
+		switch (msg.what) {
+		case MESSAGE_HANDLER:
+			if(pageNo==1){
+				doAsync(this, this, this);
+			}else{
+				//http://meitu.enrz.com/sexy/2.shtml
+				//http://meitu.enrz.com/sexy
+				//解析json
+				String href = url+pageNo+".shtml";
+				volleyJson(href);
+			}
+			break;
+		default:
+			break;
+		}
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.open.enrz.fragment.BaseV4Fragment#volleyJson(java.lang.String)
+	 */
+	public void volleyJson(String href) {
+		// TODO Auto-generated method stub
+		RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+		StringRequest jsonObjectRequest = new StringRequest(StringRequest.Method.GET,
+				href,new Listener<String>() {
+					@Override
+					public void onResponse(String response) {
+						System.out.println(response);
+						String json = "{\"list\":"+response+"}";
+						Gson gson = new Gson();
+						MobileMeiTuJson mMobileMeiTuJson = gson.fromJson(json, MobileMeiTuJson.class);
+						if(mMobileMeiTuJson!=null && mMobileMeiTuJson.getList()!=null && mMobileMeiTuJson.getList().size()>0){
+							List<PicBean> list = new ArrayList<PicBean>();
+							PicBean pbean;
+							for(MobileMeiTuBean mbean:mMobileMeiTuJson.getList()){
+								pbean = new PicBean();
+								pbean.setHref(mbean.getMurl());
+								pbean.setSrc(mbean.getMpicurl());
+								pbean.setTitle(mbean.getTitle());
+								list.add(pbean);
+							}
+							PicJson result = new PicJson();
+							result.setList(list);
+							onCallback(result);
+						}
+					}
+				},this) ;
+		requestQueue.add(jsonObjectRequest);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.open.enrz.fragment.BaseV4Fragment#onErrorResponse(com.android.volley.VolleyError)
+	 */
+	@Override
+	public void onErrorResponse(VolleyError error) {
+		// TODO Auto-generated method stub
+		super.onErrorResponse(error);
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -83,7 +182,6 @@ public class MobileMeiTuPullGridFragment extends PicPullGridFragment {
 		mPicAdapter.notifyDataSetChanged();
 		// Call onRefreshComplete when the list has been refreshed.
 		mPullToRefreshHeadGridView.onRefreshComplete();
-
 	}
 
 }
