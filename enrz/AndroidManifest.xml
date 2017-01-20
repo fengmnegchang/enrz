@@ -223,6 +223,13 @@
             android:description="@string/enrz_mobile_global_nav_m_pull_desp" 
             >
         </activity>
+         <!-- 发布评论 -->
+        <activity
+            android:name="com.open.enrz.activity.m.MDuoShuoCreateFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_m_duoshuo_create_desp" 
+            >
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"
