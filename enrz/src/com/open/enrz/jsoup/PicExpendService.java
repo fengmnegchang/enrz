@@ -134,7 +134,7 @@ public class PicExpendService extends CommonService {
 								String hrefa = aElement.attr("href");
 								Log.i(TAG, "i==" + i + ";titlea==" + titlea + ";hrefa==" + hrefa);
 								  gbean = new GnSubBean();
-								gbean.setHref(hrefa);
+								gbean.setHref(UrlUtils.ENRZ_PIC+hrefa);
 								gbean.setTarget(titlea);
 								
 								 clist = new ArrayList<PicBean>();

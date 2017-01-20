@@ -44,4 +44,6 @@
      <string name="enrz_mobile_global_nav_desp">mobile左菜单</string>
      <string name="enrz_mobile_global_nav_m_pull_desp">手机适配器菜单</string>
      <string name="enrz_m_duoshuo_create_desp">发布评论</string>
+     <string name="enrz_mobile_meitu_expend_desp">mobile 美图首页</string>
+     <string name="enrz_mobile_meitu_pull_grid_desp">mobile 图片列表</string>
 </resources>

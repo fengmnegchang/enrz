@@ -36,6 +36,19 @@ public class PicService extends CommonService {
 			// System.out.println(doc.toString());
 			try {
 				Element ulElement = doc.select("ul.li_lu_small").first();
+				if(ulElement==null ){
+					/**
+					 * <li>
+						<div class="item">
+                            <a class="top" href="http://meitu.enrz.com/enrzpic/2017/0106/215616.shtml" title="风韵美女私房露肩内衣居家性感写真">
+                                <img src="http://pic.enrz.cn/enrz/300x400/132/372/liK2KdIloIIHI.jpg" alt="风韵美女私房露肩内衣居家性感写真"/>
+                            </a>
+                        </div>
+					</li>
+
+					 */
+					ulElement  = doc.select("ul.log_list").first();
+				}
 				Elements moduleElements = ulElement.select("li");
 				if (moduleElements != null && moduleElements.size() > 0) {
 					for (int i = 0; i < moduleElements.size(); i++) {

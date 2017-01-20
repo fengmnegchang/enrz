@@ -2,14 +2,14 @@
  *****************************************************************************************************************************************************************************
  * 
  * @author :fengguangjing
- * @createTime:2017-1-17上午10:33:04
+ * @createTime:2017-1-20下午5:22:00
  * @version:4.2.4
  * @modifyTime:
  * @modifyAuthor:
  * @description:
  *****************************************************************************************************************************************************************************
  */
-package com.open.enrz.activity;
+package com.open.enrz.activity.mobile;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,23 +17,24 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.open.enrz.R;
-import com.open.enrz.fragment.PicExpendExpandableListViewFragment;
-import com.open.enrz.fragment.PicExpendExpandableListViewHeadFragment;
+import com.open.enrz.activity.CommonFragmentActivity;
+import com.open.enrz.activity.PicPullGridFragmentActivity;
 import com.open.enrz.fragment.PicPullGridFragment;
+import com.open.enrz.fragment.mobile.MobileMeiTuPullGridFragment;
 import com.open.enrz.utils.UrlUtils;
 
 /**
  *****************************************************************************************************************************************************************************
- * 
+ * mobile 图片列表
  * @author :fengguangjing
- * @createTime:2017-1-17上午10:33:04
+ * @createTime:2017-1-20下午5:22:00
  * @version:4.2.4
  * @modifyTime:
  * @modifyAuthor:
  * @description:
  *****************************************************************************************************************************************************************************
  */
-public class PicExpendExpandableListViewFragmentActivity extends CommonFragmentActivity {
+public class MobileMeiTuPullGridFragmentActivity extends CommonFragmentActivity {
 
 	/*
 	 * (non-Javadoc)
@@ -61,21 +62,19 @@ public class PicExpendExpandableListViewFragmentActivity extends CommonFragmentA
 		if (getIntent().getStringExtra("URL") != null) {
 			url = getIntent().getStringExtra("URL");
 		} else {
-			url = UrlUtils.ENRZ_PIC;
+			url = UrlUtils.ENRZ_MOBILE_SEXY;
 		}
 		
 		 
-//		Fragment fragment = PicExpendExpandableListViewFragment.newInstance(url, true);
-		Fragment fragment = PicExpendExpandableListViewHeadFragment.newInstance(url, true);
+		Fragment fragment = MobileMeiTuPullGridFragment.newInstance(url, true);
 		getSupportFragmentManager().beginTransaction().replace(R.id.layout_indicator, fragment).commit();
 	}
 
-	public static void startPicExpendExpandableListViewFragmentActivity(Context context,  String url) {
+	public static void startMobileMeiTuPullGridFragmentActivity(Context context,  String url) {
 		Intent intent = new Intent();
 		intent.putExtra("URL", url);
-		intent.setClass(context, PicExpendExpandableListViewFragmentActivity.class);
+		intent.setClass(context, MobileMeiTuPullGridFragmentActivity.class);
 		context.startActivity(intent);
 	}
-
 
 }

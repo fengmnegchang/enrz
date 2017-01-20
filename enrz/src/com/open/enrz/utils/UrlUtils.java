@@ -26,8 +26,9 @@ public class UrlUtils {
 	public static final String COOKIE = "__cfduid=df0a47eed3d6f56b0ce2b54928ced11051483189834; CNZZDATA1000003418=380336421-1483185838-%7C1483852222";
 	
 	//mobile
-	public static final String ENRZ_PIC_MOBILE = "http://meitu.enrz.com/";
-	
+	public static final String ENRZ_PIC_MOBILE = "http://meitu.enrz.com";
+	/***美女列表**/
+	public static final String ENRZ_MOBILE_SEXY = "http://meitu.enrz.com/sexy/";
 	
 	/***m主页**/
 	public static final String ENRZ_M = "http://m.enrz.com/";
@@ -61,7 +62,7 @@ public class UrlUtils {
 	/***美女列表**/
 	public static final String ENRZ_MISS = "http://pic.enrz.com/miss/";
 	/***美图**/
-	public static final String ENRZ_PIC="http://pic.enrz.com/";
+	public static final String ENRZ_PIC="http://pic.enrz.com";
 	/***看图详细**/
 	public static final String ENRZ_DETAIL_THUMB="http://pic.enrz.com/2016/1014/196606.shtml";
 	

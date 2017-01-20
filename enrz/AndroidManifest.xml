@@ -230,6 +230,20 @@
             android:description="@string/enrz_m_duoshuo_create_desp" 
             >
         </activity>
+         <!-- mobile 美图首页-->
+        <activity
+            android:name="com.open.enrz.activity.mobile.MobileMeiTuExpendExpandableListViewFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_mobile_meitu_expend_desp" 
+			>
+        </activity>
+         <!-- mobile 图片列表-->
+        <activity
+            android:name="com.open.enrz.activity.mobile.MobileMeiTuPullGridFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_mobile_meitu_pull_grid_desp" 
+			>
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"

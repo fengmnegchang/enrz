@@ -16,12 +16,16 @@ import java.util.List;
 
 import android.content.Context;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.open.enrz.R;
+import com.open.enrz.activity.PicPullGridFragmentActivity;
+import com.open.enrz.activity.mobile.MobileMeiTuPullGridFragmentActivity;
 import com.open.enrz.bean.GnSubBean;
 import com.open.enrz.bean.PicBean;
+import com.open.enrz.utils.UrlUtils;
 import com.open.enrz.view.ExpendGridView;
 
 /**
@@ -59,9 +63,21 @@ public class PicExpendExpandableListAdapter extends CommonExpandableListAdapter<
 		} else {
 			mGroupViewHolder = (GroupViewHolder) convertView.getTag();
 		}
-		GnSubBean bean = (GnSubBean) getGroup(groupPosition);
+		final GnSubBean bean = (GnSubBean) getGroup(groupPosition);
 		if (bean != null) {
 			mGroupViewHolder.text_moduleTitle.setText(bean.getTarget());
+			convertView.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					if(bean.getHref()!=null && bean.getHref().length()>0){
+						if(bean.getHref().contains(UrlUtils.ENRZ_PIC)){
+							PicPullGridFragmentActivity.startPicPullGridFragmentActivity(mContext, bean.getHref());
+						}else{
+							MobileMeiTuPullGridFragmentActivity.startMobileMeiTuPullGridFragmentActivity(mContext, bean.getHref());
+						}
+					}
+				}
+			});
 		}
 		return convertView;
 	}
