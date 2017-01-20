@@ -216,6 +216,13 @@
             android:description="@string/enrz_mobile_global_nav_desp" 
             >
         </activity>
+        <!-- mobile 手机适配器菜单 -->
+        <activity
+            android:name="com.open.enrz.activity.mobile.MobileGlobalNavMPullFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/enrz_mobile_global_nav_m_pull_desp" 
+            >
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.enrz.activity.EnrzALLActivity"
